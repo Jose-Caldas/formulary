@@ -12,7 +12,7 @@ const theme = {
     menuBg: "#F5F5F5",
     footerBg: "#3A3A3A",
     primary: "#F231A5",
-    secondary: "#3CD3C1",
+    secondary: "#28B0FC",
     mainBg: "#06092B",
     lightBg: "#F2F2F2",
     white: "#FAFAFA",
