@@ -3,31 +3,30 @@ import {
   LinkedinWithCircle,
   InstagramWithCircle,
 } from "@styled-icons/entypo-social";
+
+import { Search } from "@styled-icons/feather/Search";
 import {
   Container,
   Menu,
+  Input,
   Wrapper,
   MenuWrapper,
   Logo,
-  Image,
   Footer,
   Social,
 } from "../styles/pages/home.styles";
 import Head from "next/head";
 
-export type HomeProps = {
-  title: string;
-  description: string;
-};
-
-export default function Home({ description, title }: HomeProps) {
+export default function Home() {
   return (
     <Container>
       <MenuWrapper>
         <Menu>
-          <Logo>
-            <Image src="logo.svg" alt="Logo"></Image>
-          </Logo>
+          <Logo src="logo.svg" alt="Logo" />
+          <Input>
+            <Search size={17} />
+            <input type="text" placeholder="Buscar aqui" />
+          </Input>
         </Menu>
       </MenuWrapper>
       <Wrapper>

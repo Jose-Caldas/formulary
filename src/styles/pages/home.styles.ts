@@ -26,17 +26,53 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Logo = styled.div``;
-export const Image = styled.img`
-  width: 14.8rem;
-  height: 4rem;
-`;
-
 export const Menu = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
   max-width: ${(props) => props.theme.grid.container};
   padding: ${(props) => props.theme.spacings.small};
 
   margin: 0 auto;
+
+  @media (max-width: 778px) {
+    flex-direction: column;
+  }
+`;
+
+export const Logo = styled.img`
+  width: 14.8rem;
+  height: 4rem;
+  margin-left: 0;
+`;
+
+export const Input = styled.div`
+  display: flex;
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.white};
+  margin-left: 14rem;
+  border: 0.1rem solid #b0b0b0;
+  width: 46rem;
+  height: 4.8rem;
+  border-radius: 3.2rem;
+  padding: 0 ${(props) => props.theme.spacings.xsmall};
+
+  @media (max-width: 778px) {
+    margin-left: 0;
+    margin-top: 2rem;
+    width: 35rem;
+  }
+
+  input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 3.2rem;
+    margin-left: 1.4rem;
+    outline: none;
+    font-size: ${(props) => props.theme.font.sizes.medium};
+    color: ${(props) => props.theme.colors.gray};
+  }
 `;
 
 export const Footer = styled.footer`
