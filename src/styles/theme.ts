@@ -1,14 +1,16 @@
 const theme = {
   grid: {
-    container: "160rem",
+    container: "144rem",
     gutter: "3.2rem",
   },
   border: {
     radius: "0.4rem",
   },
   colors: {
-    background: "#121214",
+    background: "#fff",
     text: "#222D39",
+    menuBg: "#F5F5F5",
+    footerBg: "#3A3A3A",
     primary: "#F231A5",
     secondary: "#3CD3C1",
     mainBg: "#06092B",
@@ -39,11 +41,11 @@ const theme = {
   spacings: {
     xxsmall: "0.8rem",
     xsmall: "1.6rem",
-    small: "2.4rem",
+    small: "2.8rem",
     medium: "3.2rem",
     large: "4.0rem",
     xlarge: "4.8rem",
-    xxlarge: "5.6rem",
+    xxlarge: "6.4rem",
   },
   layers: {
     base: 10,
