@@ -14,8 +14,11 @@ import {
   Logo,
   Footer,
   Social,
+  Title,
+  Main,
 } from "../styles/pages/home.styles";
-import Head from "next/head";
+import { Sidebar } from "../components/sidebar";
+import { MemberList } from "../components/memberList";
 
 export default function Home() {
   return (
@@ -29,11 +32,12 @@ export default function Home() {
           </Input>
         </Menu>
       </MenuWrapper>
-      <Wrapper>
-        <Head>
-          <title>Formulary</title>
-        </Head>
-      </Wrapper>
+      <Title>Lista de membros</Title>
+      <Main>
+        <Sidebar />
+        <MemberList />
+      </Main>
+
       <Footer>
         <img src="logoWhite.svg" alt="logo color white" />
         <h2>Juntos Somos Mais Fidelização S.A.</h2>

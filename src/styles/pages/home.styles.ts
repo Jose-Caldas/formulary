@@ -29,7 +29,6 @@ export const Wrapper = styled.div`
 export const Menu = styled.div`
   width: 100%;
   display: flex;
-  align-items: center;
   max-width: ${(props) => props.theme.grid.container};
   padding: ${(props) => props.theme.spacings.small};
 
@@ -60,7 +59,7 @@ export const Input = styled.div`
   @media (max-width: 778px) {
     margin-left: 0;
     margin-top: 2rem;
-    width: 35rem;
+    width: 32rem;
   }
 
   input {
@@ -107,6 +106,30 @@ export const Social = styled.div`
       margin-right: 0;
     }
     fill: ${(props) => props.theme.colors.secondary};
-    color: white;
+  }
+`;
+
+export const Title = styled.h1`
+  width: 100%;
+  display: flex;
+  margin: 4rem auto;
+  max-width: ${(props) => props.theme.grid.container};
+  padding: 0 ${(props) => props.theme.spacings.small};
+  font-size: 3.2rem;
+  color: ${(props) => props.theme.colors.text};
+  font-weight: ${(props) => props.theme.font.bold};
+`;
+
+export const Main = styled.main`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 27.2rem 1fr;
+  max-width: ${(props) => props.theme.grid.container};
+  grid-gap: ${(props) => props.theme.grid.gutter};
+  margin: 0 auto;
+  padding: 0 ${(props) => props.theme.spacings.small};
+
+  @media (max-width: 600px) {
+    grid-template-columns: 1fr;
   }
 `;
