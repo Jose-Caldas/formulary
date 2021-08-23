@@ -25,19 +25,19 @@ export interface ItemsProps {
   name: string;
   username: string;
   email: string;
-  address: Address;
+  address?: Address;
   phone?: string;
   website?: string;
   company?: Company;
 }
 
-function Items({ name, email, username, address }: ItemsProps) {
+function Items({ name, email, username, phone }: ItemsProps) {
   return (
     <Wrapper>
-      <h1>Name: {name}</h1>
+      <h1>{name}</h1>
       <h2>Email: {email}</h2>
       <h3>Username: {username}</h3>
-      <h3>Zipcode: {address}</h3>
+      <h3>Phone: {phone}</h3>
     </Wrapper>
   );
 }

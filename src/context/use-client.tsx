@@ -5,9 +5,33 @@ import {
   createContext,
   useContext,
   ReactNode,
+  SetStateAction,
+  Dispatch,
 } from "react";
 
-export const UserContext = createContext({});
+interface User {
+  id?: number;
+  name: string;
+  username: string;
+  email: string;
+  phone?: string;
+}
+
+export interface UsersContextData {
+  users: User[];
+  getUsers: () => void;
+  setFilter: Dispatch<SetStateAction<string>>;
+}
+
+export const usersContextDefaultValue: UsersContextData = {
+  users: [],
+  getUsers: () => null,
+  setFilter: () => null,
+};
+
+export const UserContext = createContext<UsersContextData>(
+  usersContextDefaultValue
+);
 
 const API_BASE_URL = "https://jsonplaceholder.typicode.com/users";
 
@@ -16,7 +40,7 @@ export type UserProviderProps = {
 };
 
 function UserProvider({ children }: UserProviderProps) {
-  const [users, setUsers] = useState([]);
+  const [users, setUsers] = useState<User[]>([]);
   const [filter, setFilter] = useState("");
 
   const getUsers = async () => {
@@ -56,8 +80,7 @@ function UserProvider({ children }: UserProviderProps) {
         getUsers,
 
         users: list,
-        list,
-        filter,
+
         setFilter,
       }}
     >

@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 import GlobalStyle from "../styles/global";
 import theme from "../styles/theme";
 import Head from "next/head";
-import { UserProvider } from "../context/user-client";
+import { UserProvider } from "../context/use-client";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

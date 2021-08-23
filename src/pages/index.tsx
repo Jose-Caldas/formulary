@@ -19,10 +19,10 @@ import {
 } from "../styles/pages/home.styles";
 import { Sidebar } from "../components/sidebar";
 import { MemberList } from "../components/memberList";
-import { useClient } from "../context/user-client";
+import { useClient } from "../context/use-client";
 
 export default function Home() {
-  const { filter, setFilter } = useClient();
+  const { setFilter } = useClient();
   return (
     <Container>
       <MenuWrapper>
@@ -32,7 +32,6 @@ export default function Home() {
             <Search size={17} />
             <input
               type="text"
-              value={filter}
               onChange={(e) => setFilter(e.target.value)}
               placeholder="Buscar aqui"
             />

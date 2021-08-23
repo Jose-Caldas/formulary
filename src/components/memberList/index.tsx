@@ -1,6 +1,6 @@
 import { Container, Wrapper, Select, Members } from "./styles";
 import Items from "../items";
-import { useClient } from "../../context/user-client";
+import { useClient } from "../../context/use-client";
 
 export function MemberList() {
   const { users } = useClient();
@@ -26,7 +26,7 @@ export function MemberList() {
             name={user.name}
             email={user.email}
             username={user.username}
-            address={user.address.zipcode}
+            phone={user.phone}
           />
         ))}
       </Members>
