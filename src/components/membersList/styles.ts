@@ -56,7 +56,7 @@ export const Members = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
   grid-gap: 16px;
   padding-inline-start: 0;
-  margin-bottom: 15rem;
+  margin-bottom: 35rem;
 `;
 
 export const Items = styled.div`
@@ -68,3 +68,5 @@ export const Items = styled.div`
   height: 310px;
   border-radius: ${(props) => props.theme.border.radius};
 `;
+
+export const Loading = styled.div``;

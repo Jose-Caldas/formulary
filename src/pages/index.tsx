@@ -18,7 +18,7 @@ import {
   Main,
 } from "../styles/pages/home.styles";
 import { Sidebar } from "../components/sidebar";
-import { MemberList } from "../components/memberList";
+import { MembersList } from "../components/membersList";
 import { useClient } from "../context/use-client";
 
 export default function Home() {
@@ -41,7 +41,7 @@ export default function Home() {
       <Title>Lista de membros</Title>
       <Main>
         <Sidebar />
-        <MemberList />
+        <MembersList />
       </Main>
 
       <Footer>

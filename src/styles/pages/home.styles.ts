@@ -74,30 +74,6 @@ export const Input = styled.div`
   }
 `;
 
-export const Footer = styled.footer`
-  width: 100%;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  background-color: ${(props) => props.theme.colors.footerBg};
-  color: white;
-  padding-top: ${(props) => props.theme.spacings.medium};
-  padding-bottom: ${(props) => props.theme.spacings.xlarge};
-  img {
-    margin-bottom: 2.4rem;
-  }
-  h2 {
-    margin-bottom: 2.4rem;
-    font-size: ${(props) => props.theme.font.sizes.medium};
-  }
-  h3 {
-    margin-bottom: 2rem;
-    font-size: ${(props) => props.theme.font.sizes.small};
-  }
-`;
-
 export const Social = styled.div`
   svg {
     margin-right: ${(props) => props.theme.spacings.xsmall};
@@ -131,5 +107,31 @@ export const Main = styled.main`
 
   @media (max-width: 600px) {
     grid-template-columns: 1fr;
+  }
+`;
+
+export const Footer = styled.footer`
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  background-color: ${(props) => props.theme.colors.footerBg};
+  color: white;
+  padding-top: ${(props) => props.theme.spacings.medium};
+  padding-bottom: ${(props) => props.theme.spacings.xlarge};
+  img {
+    margin-bottom: 2.4rem;
+  }
+  h2 {
+    margin-bottom: 2.4rem;
+    font-size: ${(props) => props.theme.font.sizes.medium};
+  }
+  h3 {
+    margin-bottom: 2rem;
+    font-size: ${(props) => props.theme.font.sizes.small};
   }
 `;
