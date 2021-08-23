@@ -56,7 +56,6 @@ export const Members = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
   grid-gap: 16px;
   padding-inline-start: 0;
-  margin-bottom: 35rem;
 `;
 
 export const Items = styled.div`
@@ -70,3 +69,31 @@ export const Items = styled.div`
 `;
 
 export const Loading = styled.div``;
+
+export const Paginate = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Pagination = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: ${(props) => props.theme.font.sizes.xxlarge};
+  margin: 2rem 0 4rem;
+`;
+
+export const Navigation = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 15rem;
+
+  button {
+    background-color: #eee;
+    border-radius: 50%;
+    padding: 5px;
+    border: none;
+  }
+`;

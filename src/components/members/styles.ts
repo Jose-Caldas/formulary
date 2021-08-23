@@ -33,7 +33,10 @@ export const Location = styled.div`
     font-size: 1rem;
     text-transform: capitalize;
   }
-  span {
+  h2 {
+    text-transform: capitalize;
+  }
+  h3 {
     text-transform: uppercase;
   }
 `;

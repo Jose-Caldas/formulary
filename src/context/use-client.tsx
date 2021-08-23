@@ -101,14 +101,11 @@ function UserProvider({ children }: UserProviderProps) {
 
   const getUsers = async () => {
     setLoading(true);
-    const res = await axios.get(
-      "https://run.mocky.io/v3/3150d4b0-fb4e-44af-94d2-689b46d91129"
-    );
+    const res = await axios.get(API_BASE_URL);
 
     const { results } = await res.data;
     setLoading(false);
     setUsers(results);
-    console.log(users);
   };
   useEffect(() => {
     getUsers();

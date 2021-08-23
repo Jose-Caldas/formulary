@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
-  /* height: 100vh; */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -111,8 +111,6 @@ export const Main = styled.main`
 `;
 
 export const Footer = styled.footer`
-  position: fixed;
-  bottom: 0;
   width: 100%;
   margin: 0 auto;
   display: flex;

@@ -44,20 +44,20 @@ export interface Picture {
 
 export interface MembersProps {
   gender?: string;
-  name: Name;
-  location: Location;
+  name?: Name;
+  location?: Location;
   email: string;
   dob?: Dob;
   registered?: Registered;
   phone?: string;
   cell?: string;
-  picture?: Picture;
+  picture: Picture;
 }
 
-function Members({ email, name, location }: MembersProps) {
+function Members({ email, name, location, picture }: MembersProps) {
   return (
     <Wrapper>
-      <img src="/user.svg" alt="avatar" />
+      <img src={picture.medium} alt="avatar" />
       <Profile>
         <h2>{name.title}.</h2>
         <h2>{name.first}</h2>
@@ -65,8 +65,9 @@ function Members({ email, name, location }: MembersProps) {
       </Profile>
       <h3>Email: {email}</h3>
       <Location>
-        <p>{location.city}</p>
-        <span>{location.state}</span>
+        <h2>{location.city}</h2>
+        <h3>{location.state}</h3>
+        <p>{location.street}</p>
       </Location>
     </Wrapper>
   );
