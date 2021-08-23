@@ -1,32 +1,9 @@
 import { Container, Wrapper, Select, Members } from "./styles";
-import { useEffect, useState } from "react";
 import Items from "../items";
+import { useClient } from "../../context/user-client";
 
 export function MemberList() {
-  const [members, setMembers] = useState([]);
-
-  const baseUrl = `https://jsonplaceholder.typicode.com/users`;
-  const getMembers = async () => {
-    const res = await fetch(baseUrl);
-    const data = await res.json();
-
-    function createMembersObj(data) {
-      data.forEach(async (user) => {
-        const res = await fetch(
-          `https://jsonplaceholder.typicode.com/users/${user.id}`
-        );
-        const data = await res.json();
-
-        setMembers((currentList) => [...currentList, data]);
-      });
-    }
-
-    console.log(members);
-    createMembersObj(data);
-  };
-  useEffect(() => {
-    getMembers();
-  }, []);
+  const { users } = useClient();
 
   return (
     <Container>
@@ -43,13 +20,13 @@ export function MemberList() {
         </Select>
       </Wrapper>
       <Members>
-        {members.map((member, index) => (
+        {users.map((user, index) => (
           <Items
             key={index}
-            name={member.name}
-            email={member.email}
-            username={member.username}
-            address={member.address.zipcode}
+            name={user.name}
+            email={user.email}
+            username={user.username}
+            address={user.address.zipcode}
           />
         ))}
       </Members>

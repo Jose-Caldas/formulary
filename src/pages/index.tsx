@@ -19,10 +19,10 @@ import {
 } from "../styles/pages/home.styles";
 import { Sidebar } from "../components/sidebar";
 import { MemberList } from "../components/memberList";
-
-
+import { useClient } from "../context/user-client";
 
 export default function Home() {
+  const { filter, setFilter } = useClient();
   return (
     <Container>
       <MenuWrapper>
@@ -30,7 +30,12 @@ export default function Home() {
           <Logo src="logo.svg" alt="Logo" />
           <Input>
             <Search size={17} />
-            <input type="text" placeholder="Buscar aqui" />
+            <input
+              type="text"
+              value={filter}
+              onChange={(e) => setFilter(e.target.value)}
+              placeholder="Buscar aqui"
+            />
           </Input>
         </Menu>
       </MenuWrapper>
