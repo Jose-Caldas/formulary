@@ -7,7 +7,8 @@ import Members from "../members";
 export function MembersList() {
   const { users, loading } = useClient();
   const [currentPage, setCurrentPage] = useState(1);
-  const [usersPerPage] = useState(9);
+  const [usersPerPage] = useState(6);
+  const [offset, setOffset] = useState(0);
 
   const indexOfLastUser = currentPage * usersPerPage;
   const indexOfFirstUser = indexOfLastUser - usersPerPage;
@@ -24,7 +25,7 @@ export function MembersList() {
           </option>
           <option value="1">Ordenar por: Nome</option>
           <option value="2">Ordenar por: Estado</option>
-          <option value="3">Ordenar por: CEP</option>
+          <option value="3">Ordenar por: Email</option>
           <option value="4">Ordenar por: Cidade</option>
         </Select>
       </Wrapper>
@@ -32,9 +33,13 @@ export function MembersList() {
       <MembersContainer>
         <Members users={currentUser} />
         <Pagination
-          usersPerPage={usersPerPage}
-          totalUsers={users.length}
+          // usersPerPage={usersPerPage}
+          // totalUsers={users.length}
           paginate={paginate}
+          limit={usersPerPage}
+          total={users.length}
+          offset={offset}
+          setOffset={setOffset}
         />
       </MembersContainer>
     </Container>

@@ -1,58 +1,5 @@
 import React from "react";
-import { Wrapper, Profile, Location } from "./styles";
-
-export interface Name {
-  title: string;
-  first: string;
-  last: string;
-}
-
-export interface Coordinates {
-  latitude: string;
-  longitude: string;
-}
-
-export interface Timezone {
-  offset: string;
-  description: string;
-}
-
-export interface Location {
-  street: string;
-  city: string;
-  state: string;
-  postcode: number;
-  coordinates: Coordinates;
-  timezone: Timezone;
-}
-
-export interface Dob {
-  date: Date;
-  age: number;
-}
-
-export interface Registered {
-  date: Date;
-  age: number;
-}
-
-export interface Picture {
-  large: string;
-  medium: string;
-  thumbnail: string;
-}
-
-export interface MembersProps {
-  gender?: string;
-  name?: Name;
-  location?: Location;
-  email: string;
-  dob?: Dob;
-  registered?: Registered;
-  phone?: string;
-  cell?: string;
-  picture: Picture;
-}
+import { Wrapper, Profile, Info, Name, Location } from "./styles";
 
 function Members({ users }) {
   return (
@@ -62,7 +9,17 @@ function Members({ users }) {
           <ul key={index}>
             <li>
               <img src={user.picture.medium}></img>
-              <h1>{user.name.first}</h1>
+              <Info>
+                <Name>
+                  <h1>{user.name.first}</h1>
+                  <h1>{user.name.last}</h1>
+                </Name>
+                <p>{user.email}</p>
+              </Info>
+              <Location>
+                <p>{user.location.city}</p>
+                <h2>{user.location.state}</h2>
+              </Location>
             </li>
           </ul>
         ))}
