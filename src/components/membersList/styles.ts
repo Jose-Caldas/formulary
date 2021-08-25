@@ -51,11 +51,21 @@ export const Select = styled.select`
   }
 `;
 
-export const Members = styled.div`
-  display: grid;
+export const MembersContainer = styled.div`
+  /* display: grid;
   grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
   grid-gap: 16px;
-  padding-inline-start: 0;
+  padding-inline-start: 0; */
+
+  /* ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border: 1px solid #e5e5e5;
+    height: 310px;
+    border-radius: ${(props) => props.theme.border.radius};
+  } */
 `;
 
 export const Items = styled.div`

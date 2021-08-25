@@ -20,6 +20,7 @@ import {
 import { Sidebar } from "../components/sidebar";
 import { MembersList } from "../components/membersList";
 import { useClient } from "../context/use-client";
+import Link from "next/link";
 
 export default function Home() {
   const { setFilter } = useClient();
@@ -49,9 +50,21 @@ export default function Home() {
         <h2>Juntos Somos Mais Fidelização S.A.</h2>
         <h3>Siga-nos nas redes sociais:</h3>
         <Social>
-          <FacebookWithCircle size={40} />
-          <LinkedinWithCircle size={40} />
-          <InstagramWithCircle size={40} />
+          <Link href="#">
+            <a>
+              <FacebookWithCircle size={40} />
+            </a>
+          </Link>
+          <Link href="#">
+            <a>
+              <LinkedinWithCircle size={40} />
+            </a>
+          </Link>
+          <Link href="#">
+            <a>
+              <InstagramWithCircle size={40} />
+            </a>
+          </Link>
         </Social>
       </Footer>
     </Container>

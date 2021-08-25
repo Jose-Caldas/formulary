@@ -1,14 +1,6 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  border: 1px solid #e5e5e5;
-  height: 310px;
-  border-radius: ${(props) => props.theme.border.radius};
-
   img {
     border-radius: 50%;
     background-color: #eee;
@@ -16,8 +8,21 @@ export const Wrapper = styled.div`
 `;
 
 export const Profile = styled.div`
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+  grid-gap: 16px;
+  padding-inline-start: 0;
+
+  ul {
+    list-style: none;
+  }
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eeee;
+    padding: 1rem;
+  }
 
   h2 {
     margin-right: 0.6rem;

@@ -54,21 +54,19 @@ export interface MembersProps {
   picture: Picture;
 }
 
-function Members({ email, name, location, picture }: MembersProps) {
+function Members({ users }) {
   return (
     <Wrapper>
-      <img src={picture.medium} alt="avatar" />
       <Profile>
-        <h2>{name.title}.</h2>
-        <h2>{name.first}</h2>
-        <h2>{name.last}</h2>
+        {users.map((user, index) => (
+          <ul key={index}>
+            <li>
+              <img src={user.picture.medium}></img>
+              <h1>{user.name.first}</h1>
+            </li>
+          </ul>
+        ))}
       </Profile>
-      <h3>Email: {email}</h3>
-      <Location>
-        <h2>{location.city}</h2>
-        <h3>{location.state}</h3>
-        <p>{location.street}</p>
-      </Location>
     </Wrapper>
   );
 }

@@ -1,66 +1,23 @@
-import {
-  Container,
-  Wrapper,
-  Select,
-  Members,
-  Loading,
-  Paginate,
-  Pagination,
-  Navigation,
-} from "./styles";
-import Items from "../members";
+import { Container, Wrapper, Select, MembersContainer } from "./styles";
+import Pagination from "../pagination";
 import { useClient } from "../../context/use-client";
-import { ArrowIosBack, ArrowIosForward } from "@styled-icons/evaicons-solid";
-import { ButtonHTMLAttributes } from "react";
+import { useState } from "react";
+import Members from "../members";
 
-type ButtonTypes = ButtonHTMLAttributes<HTMLButtonElement>;
-
-type MemberListProps = {} & ButtonTypes;
-
-export function MembersList({}: MemberListProps) {
+export function MembersList() {
   const { users, loading } = useClient();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [usersPerPage] = useState(9);
 
-  let perPage = 20;
-  const state = {
-    page: 1,
-    perPage,
-    totalPage: users.length / perPage,
-  };
-
-  const controls = {
-    next() {
-      state.page++;
-      const lastPage = state.page > state.totalPage;
-      if (lastPage) {
-        state.page--;
-      }
-    },
-    prev() {
-      state.page--;
-      if (state.page < 1) {
-        state.page++;
-      }
-    },
-    goTo(page) {
-      if (page < 1) {
-        page = 1;
-      }
-      state.page = page;
-      if (page > state.totalPage) {
-        state.page = state.totalPage;
-      }
-    },
-  };
-  console.log(state.page);
-  controls.goTo(22);
-  console.log(state.page);
+  const indexOfLastUser = currentPage * usersPerPage;
+  const indexOfFirstUser = indexOfLastUser - usersPerPage;
+  const currentUser = users.slice(indexOfFirstUser, indexOfLastUser);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <Container>
       <Wrapper>
-        <p>
-          Exibindo {users.length} de {users.length} itens
-        </p>
+        <p>Exibindo</p>
         <Select>
           <option value="" hidden>
             Ordenar por:
@@ -72,36 +29,14 @@ export function MembersList({}: MemberListProps) {
         </Select>
       </Wrapper>
 
-      {loading ? (
-        <Loading>
-          <img src="/dots.svg" />
-        </Loading>
-      ) : (
-        <Paginate>
-          <Members>
-            {users.map((user, index) => (
-              <Items
-                key={index}
-                email={user.email}
-                name={user.name}
-                location={user.location}
-                picture={user.picture}
-              />
-            ))}
-          </Members>
-        </Paginate>
-      )}
-      <Pagination>
-        <Navigation>
-          <button onClick={controls.prev()}>
-            <ArrowIosBack size={20} />
-          </button>
-          <h1>1</h1>
-          <button onClick={controls.next()}>
-            <ArrowIosForward size={20} />
-          </button>
-        </Navigation>
-      </Pagination>
+      <MembersContainer>
+        <Members users={currentUser} />
+        <Pagination
+          usersPerPage={usersPerPage}
+          totalUsers={users.length}
+          paginate={paginate}
+        />
+      </MembersContainer>
     </Container>
   );
 }

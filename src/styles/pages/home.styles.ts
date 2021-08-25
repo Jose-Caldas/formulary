@@ -75,13 +75,16 @@ export const Input = styled.div`
 `;
 
 export const Social = styled.div`
-  svg {
+  color: #fff;
+  a {
     margin-right: ${(props) => props.theme.spacings.xsmall};
 
     :last-child {
       margin-right: 0;
     }
-    fill: ${(props) => props.theme.colors.secondary};
+    svg {
+      fill: ${(props) => props.theme.colors.secondary};
+    }
   }
 `;
 
@@ -105,7 +108,7 @@ export const Main = styled.main`
   margin: 0 auto;
   padding: 0 ${(props) => props.theme.spacings.small};
 
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     grid-template-columns: 1fr;
   }
 `;
