@@ -1,5 +1,29 @@
 import styled from "styled-components";
 
+export const DataContainer = styled.ul``;
+
+export const MemberName = styled.div`
+  a {
+    display: flex;
+    font-size: 2rem;
+    text-decoration: none;
+    color: ${(props) => props.theme.colors.text};
+
+    &:hover {
+      color: #999;
+    }
+
+    h1 {
+      font-size: ${(props) => props.theme.font.sizes.xlarge};
+      :first-child {
+        margin-right: 0.8rem;
+      }
+    }
+  }
+`;
+
+export const MemberInfo = styled.li``;
+
 export const Wrapper = styled.div`
   .pageNumbers {
     list-style: none;
@@ -8,10 +32,9 @@ export const Wrapper = styled.div`
 
   .pageNumbers li {
     padding: 10px;
-    /* border: 1px solid #eee; */
     cursor: pointer;
     color: #9b9b9b;
-    font-size: ${(props) => props.theme.font.sizes.small};
+    font-size: ${(props) => props.theme.font.sizes.medium};
   }
 
   .pageNumbers li.active {
@@ -54,6 +77,10 @@ export const UserContainer = styled.ul`
 
     img {
       border-radius: 50%;
+    }
+
+    h1 {
+      text-transform: capitalize;
     }
 
     li {

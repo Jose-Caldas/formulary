@@ -4,12 +4,16 @@ import { useState } from "react";
 import { useClient, User } from "../../context/use-client";
 import {
   Wrapper,
+  DataContainer,
+  MemberInfo,
   UserContainer,
   Controls,
   PrevButton,
   NextButton,
+  MemberName,
 } from "./styles";
 import { ArrowIosBack, ArrowIosForward } from "@styled-icons/evaicons-solid";
+import Link from "next/link";
 
 function Pagination() {
   const { users, currentPage, setCurrentPage } = useClient();
@@ -19,18 +23,25 @@ function Pagination() {
 
   const renderData = (data: User[]) => {
     return (
-      <ul>
+      <DataContainer>
         {data.map((user, index) => {
           return (
-            <li key={index}>
+            <MemberInfo key={index}>
               <img src={user.picture.medium} alt="avatar" />
-              <h1>{user.name.first}</h1>
+              <MemberName>
+                <Link href={`/member/${user.name.first}`}>
+                  <a>
+                    <h1>{user.name.first}</h1>
+                    <h1>{user.name.last}</h1>
+                  </a>
+                </Link>
+              </MemberName>
               <h2>{user.email}</h2>
               <h3>{user.location.city}</h3>
-            </li>
+            </MemberInfo>
           );
         })}
-      </ul>
+      </DataContainer>
     );
   };
 

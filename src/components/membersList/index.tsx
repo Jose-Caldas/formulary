@@ -1,24 +1,14 @@
 import { Container, Wrapper, Select, MembersContainer } from "./styles";
 import Pagination from "../pagination";
 import { useClient } from "../../context/use-client";
-import { useState } from "react";
-import Members from "../members";
 
 export function MembersList() {
   const { users, loading } = useClient();
-  const [currentPage, setCurrentPage] = useState(1);
-  const [usersPerPage] = useState(6);
-  const [offset, setOffset] = useState(0);
-
-  const indexOfLastUser = currentPage * usersPerPage;
-  const indexOfFirstUser = indexOfLastUser - usersPerPage;
-  const currentUser = users.slice(indexOfFirstUser, indexOfLastUser);
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <Container>
       <Wrapper>
-        <p>Exibindo</p>
+        <p>Exibindo {users.length}</p>
         <Select>
           <option value="" hidden>
             Ordenar por:
@@ -31,7 +21,7 @@ export function MembersList() {
       </Wrapper>
 
       <MembersContainer>
-        <Pagination />
+        {loading ? <img src="/dots.svg" /> : <Pagination />}
       </MembersContainer>
     </Container>
   );
