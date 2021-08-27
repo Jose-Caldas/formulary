@@ -1,6 +1,7 @@
-import { Container, Wrapper, Select, MembersContainer } from "./styles";
+import { Container, Wrapper, MembersContainer } from "./styles";
 import Pagination from "../pagination";
 import { useClient } from "../../context/use-client";
+import Dropdown from "../dropdown";
 
 export function MembersList() {
   const { users, loading } = useClient();
@@ -9,7 +10,7 @@ export function MembersList() {
     <Container>
       <Wrapper>
         <p>Exibindo {users.length}</p>
-        <Select>
+        {/* <Select>
           <option value="" hidden>
             Ordenar por:
           </option>
@@ -17,7 +18,8 @@ export function MembersList() {
           <option value="2">Ordenar por: Estado</option>
           <option value="3">Ordenar por: Email</option>
           <option value="4">Ordenar por: Cidade</option>
-        </Select>
+        </Select> */}
+        <Dropdown />
       </Wrapper>
 
       <MembersContainer>
