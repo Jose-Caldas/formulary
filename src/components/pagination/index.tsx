@@ -1,60 +1,125 @@
-import { Nav } from "./styles";
+import axios from "axios";
+import React, { useEffect } from "react";
+import { useState } from "react";
+import { useClient, User } from "../../context/use-client";
+import {
+  Wrapper,
+  UserContainer,
+  Controls,
+  PrevButton,
+  NextButton,
+} from "./styles";
 import { ArrowIosBack, ArrowIosForward } from "@styled-icons/evaicons-solid";
 
-const maxItems = 7;
-const maxLeft = (maxItems - 1) / 2;
+function Pagination() {
+  const { users, currentPage, setCurrentPage } = useClient();
+  const [pageNumberLimit, setPageNumberLimit] = useState(5);
+  const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
+  const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
-const Pagination = ({ limit, total, offset, setOffset, paginate }) => {
-  const currentPage = offset ? offset / limit + 1 : 1;
-  console.log(currentPage);
+  const renderData = (data: User[]) => {
+    return (
+      <ul>
+        {data.map((user, index) => {
+          return (
+            <li key={index}>
+              <img src={user.picture.medium} alt="avatar" />
+              <h1>{user.name.first}</h1>
+              <h2>{user.email}</h2>
+              <h3>{user.location.city}</h3>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  };
 
-  const pages = Math.ceil(total / limit);
+  const [itemsPerPage] = useState(9);
 
-  const maxFirst = Math.max(pages - (maxItems - 1), 1);
+  const pages = [];
+  for (let i = 1; i <= Math.ceil(users.length / itemsPerPage); i++) {
+    pages.push(i);
+  }
 
-  const firstPage = Math.min(Math.max(currentPage - maxLeft, 1), maxFirst);
+  const renderPageNumbers = pages.map((pageNumber) => {
+    // qual e o tamanho do array
+    // qual e o index atual
+    //  total(20) - 17  = 3
+    //  total(20) - 19 = 1
+    // <= 3 ? resultado : 3
+    if (
+      pageNumber < maxPageNumberLimit + 1 &&
+      pageNumber > minPageNumberLimit
+    ) {
+      return (
+        <li
+          className={currentPage == pageNumber ? "active" : null}
+          key={pageNumber}
+          id={pageNumber}
+          onClick={() => setCurrentPage(pageNumber)}
+        >
+          {pageNumber}
+        </li>
+      );
+    } else {
+      return null;
+    }
+  });
 
-  function onPageChange(page: number) {
-    setOffset((page - 1) * limit);
+  const indexOfLastItem = currentPage * itemsPerPage; //1 * 5 = last item 5
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage; //5 - 5 = first item 0
+  const currentItems = users.slice(indexOfFirstItem, indexOfLastItem); // 0 , 5
+
+  const handlePrevButton = () => {
+    setCurrentPage(currentPage - 1);
+    if ((currentPage - 1) % pageNumberLimit == 0) {
+      setMaxPageNumberLimit(maxPageNumberLimit - pageNumberLimit);
+      setMinPageNumberLimit(minPageNumberLimit - pageNumberLimit);
+    }
+  };
+
+  const handleNextButton = () => {
+    setCurrentPage(currentPage + 1);
+    if (currentPage + 1 > maxPageNumberLimit) {
+      setMaxPageNumberLimit(maxPageNumberLimit + pageNumberLimit);
+      setMinPageNumberLimit(minPageNumberLimit + pageNumberLimit);
+    }
+  };
+
+  let pageIncrementButton = null;
+  if (pages.length > maxPageNumberLimit) {
+    pageIncrementButton = <li onClick={handleNextButton}> &hellip; </li>;
+  }
+  let pageDecrementButton = null;
+  if (minPageNumberLimit >= 1) {
+    pageDecrementButton = <li onClick={handlePrevButton}> &hellip; </li>;
   }
 
   return (
-    <Nav>
-      <ul className="pagination">
-        <li className="list">
-          <button
-            className="pagination__svg"
-            onClick={() => onPageChange(currentPage - 1)}
-            disabled={currentPage === 1}
-          >
+    <Wrapper>
+      <UserContainer>{renderData(currentItems)}</UserContainer>
+      <Controls className="pageNumbers">
+        <PrevButton>
+          <button onClick={handlePrevButton} disabled={currentPage === 1}>
             <ArrowIosBack size={22} />
           </button>
-        </li>
-        {Array.from({ length: Math.min(maxItems, pages) })
-          .map((_, index) => index + firstPage)
-          .map((page, index) => (
-            <li key={page}>
-              <a
-                className={
-                  page === currentPage ? "pagination__item--active" : null
-                }
-                onClick={() => paginate(page)}
-              >
-                {page}
-              </a>
-            </li>
-          ))}
-        <li>
+        </PrevButton>
+
+        {pageDecrementButton}
+        {renderPageNumbers}
+        {pageIncrementButton}
+
+        <NextButton>
           <button
-            className="pagination__svg"
-            onClick={() => onPageChange(currentPage + 1)}
-            disabled={currentPage === pages}
+            onClick={handleNextButton}
+            disabled={currentPage == pages[pages.length - 1] ? true : false}
           >
             <ArrowIosForward size={22} />
           </button>
-        </li>
-      </ul>
-    </Nav>
+        </NextButton>
+      </Controls>
+    </Wrapper>
   );
-};
+}
+
 export default Pagination;

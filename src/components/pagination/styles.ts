@@ -1,25 +1,24 @@
 import styled from "styled-components";
 
-export const Nav = styled.nav`
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 2rem 0;
-
-  .pagination {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+export const Wrapper = styled.div`
+  .pageNumbers {
     list-style: none;
+    display: flex;
   }
 
-  .pagination__item--active {
-    position: relative;
-    background-color: transparent;
-    font-weight: bold;
+  .pageNumbers li {
+    padding: 10px;
+    /* border: 1px solid #eee; */
+    cursor: pointer;
     color: #9b9b9b;
-    transform: scale(1.2);
+    font-size: ${(props) => props.theme.font.sizes.small};
+  }
+
+  .pageNumbers li.active {
+    position: relative;
+    color: #eee;
+    color: black;
+    font-size: ${(props) => props.theme.font.sizes.medium};
 
     &::before {
       content: "";
@@ -34,32 +33,70 @@ export const Nav = styled.nav`
     }
   }
 
-  a {
-    border: none;
-    padding: 1rem 1.5rem;
-    cursor: pointer;
-    font-size: ${(props) => props.theme.font.sizes.medium};
+  .pageNumbers button {
     background-color: transparent;
-    text-decoration: none;
-
-    @media (max-width: 840px) {
-      font-size: ${(props) => props.theme.font.sizes.small};
-      padding: 6px;
-    }
+    border: none;
+    cursor: pointer;
 
     &:hover {
-      background-color: #e5e5e5;
+      color: #999;
     }
   }
+`;
 
-  .pagination__svg {
-    background-color: #e5e5e5;
-    border-radius: 50%;
-    padding: 1.5rem;
-    border: none;
+export const UserContainer = styled.ul`
+  ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(272px, 1fr));
+    grid-gap: 16px;
+    padding-inline-start: 0;
+    list-style: none;
 
+    img {
+      border-radius: 50%;
+    }
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #eee;
+      padding: 0.5rem 0;
+    }
+  }
+`;
+
+export const Controls = styled.ul`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem 0;
+`;
+
+export const PrevButton = styled.div`
+  background-color: #e5e5e5;
+  border-radius: 50%;
+
+  button {
+    padding: 0.8rem;
     &:focus {
+      border-radius: 50%;
       background-color: #444;
+      color: #fff;
+    }
+  }
+`;
+export const NextButton = styled.div`
+  background-color: #e5e5e5;
+  border-radius: 50%;
+
+  button {
+    padding: 0.8rem;
+    &:focus {
+      border-radius: 50%;
+      background-color: #444;
+      color: #fff;
     }
   }
 `;

@@ -74,6 +74,8 @@ export interface UsersContextData {
   getUsers: () => void;
   setFilter: Dispatch<SetStateAction<string>>;
   loading: boolean;
+  currentPage: number;
+  setCurrentPage: Dispatch<SetStateAction<number>>;
 }
 
 export const usersContextDefaultValue: UsersContextData = {
@@ -81,6 +83,8 @@ export const usersContextDefaultValue: UsersContextData = {
   getUsers: () => null,
   setFilter: () => null,
   loading: false,
+  currentPage: 1,
+  setCurrentPage: () => {},
 };
 
 export const UserContext = createContext<UsersContextData>(
@@ -98,6 +102,7 @@ function UserProvider({ children }: UserProviderProps) {
   const [users, setUsers] = useState([]);
   const [filter, setFilter] = useState("");
   const [loading, setLoading] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   const getUsers = async () => {
     setLoading(true);
@@ -113,11 +118,14 @@ function UserProvider({ children }: UserProviderProps) {
 
   const list = useMemo(() => {
     const isFiltering = filter.length === 0;
+    setCurrentPage(1);
 
     return isFiltering
       ? users
-      : users.filter((user) =>
-          user.email.toLowerCase().includes(filter.toLowerCase())
+      : users.filter(
+          (user) =>
+            user.name.last.toLowerCase().includes(filter.toLowerCase()) ||
+            user.name.first.toLowerCase().includes(filter.toLowerCase())
         );
   }, [users, filter]);
 
@@ -127,6 +135,8 @@ function UserProvider({ children }: UserProviderProps) {
         getUsers,
 
         users: list,
+        currentPage,
+        setCurrentPage,
 
         setFilter,
         loading,

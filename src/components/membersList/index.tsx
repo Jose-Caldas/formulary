@@ -31,16 +31,7 @@ export function MembersList() {
       </Wrapper>
 
       <MembersContainer>
-        <Members users={currentUser} />
-        <Pagination
-          // usersPerPage={usersPerPage}
-          // totalUsers={users.length}
-          paginate={paginate}
-          limit={usersPerPage}
-          total={users.length}
-          offset={offset}
-          setOffset={setOffset}
-        />
+        <Pagination />
       </MembersContainer>
     </Container>
   );
