@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Container = styled.div`
   width: 100%;
@@ -97,6 +98,12 @@ export const Title = styled.h1`
   font-size: 3.2rem;
   color: ${(props) => props.theme.colors.text};
   font-weight: ${(props) => props.theme.font.bold};
+
+  ${media.lessThan("medium")`
+  font-size: 2.4rem;
+  margin: 2rem auto;
+
+  `}
 `;
 
 export const Main = styled.main`
@@ -108,9 +115,9 @@ export const Main = styled.main`
   margin: 0 auto;
   padding: 0 ${(props) => props.theme.spacings.small};
 
-  @media (max-width: 700px) {
-    grid-template-columns: 1fr;
-  }
+  ${media.lessThan("large")`
+  grid-template-columns: 1fr;
+ `}
 `;
 
 export const Footer = styled.footer`

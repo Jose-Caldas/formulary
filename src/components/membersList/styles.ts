@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  background-color: blue;
+`;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -11,24 +14,11 @@ export const Wrapper = styled.div`
   border-radius: ${(props) => props.theme.border.radius};
   height: 6rem;
   margin-bottom: ${(props) => props.theme.spacings.xsmall};
+  background-color: ${(props) => props.theme.colors.menuBg};
 
   p {
     font-size: ${(props) => props.theme.font.sizes.medium};
     color: ${(props) => props.theme.colors.text};
-  }
-
-  @media (max-width: 50rem) {
-    flex-direction: column;
-    padding: 0.5rem;
-    p {
-      width: 100%;
-      font-size: ${(props) => props.theme.font.sizes.xsmall};
-      margin-bottom: ${(props) => props.theme.spacings.xsmall};
-      text-align: end;
-    }
-    Select {
-      width: 100%;
-    }
   }
 `;
 
@@ -51,7 +41,12 @@ export const Select = styled.select`
   }
 `;
 
-export const MembersContainer = styled.div``;
+export const MembersContainer = styled.div`
+  @media (max-width: 925px) {
+    height: 500px;
+    overflow-y: auto;
+  }
+`;
 
 export const Items = styled.div`
   display: flex;
@@ -61,6 +56,7 @@ export const Items = styled.div`
   border: 1px solid #e5e5e5;
   height: 310px;
   border-radius: ${(props) => props.theme.border.radius};
+  background-color: yellow;
 `;
 
 export const Loading = styled.div``;

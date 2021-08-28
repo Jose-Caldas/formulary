@@ -44,20 +44,20 @@ export const Title = styled.div`
 export const Content = styled.ul`
   ${({ theme }) => css`
     width: 20rem;
-    height: 25rem;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    /* background: ${theme.colors.secondary}; */
     background: ${theme.colors.footerBg};
+    border-bottom: 6px solid #eee;
 
     color: ${theme.colors.white};
-    border-radius: 4px;
+    border-radius: ${(props) => props.theme.border.radius};
     padding: 2rem 0;
 
     margin-top: ${theme.spacings.small};
     position: absolute;
-    right: 0;
+    right: 8px;
+    top: 17px;
     z-index: ${theme.layers.alwaysOnTop};
     &::before {
       content: "";
@@ -73,6 +73,7 @@ export const Content = styled.ul`
       font-size: ${theme.font.sizes.xlarge};
       color: #fff;
       padding: 1rem 2rem;
+
       &:hover {
         background-color: #f4f4f4;
         color: #3a3a3a;

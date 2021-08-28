@@ -21,6 +21,7 @@ import { Sidebar } from "../components/sidebar";
 import { MembersList } from "../components/membersList";
 import { useClient } from "../context/use-client";
 import Link from "next/link";
+import MediaMatch from "../components/MediaMatch";
 
 export default function Home() {
   const { setFilter } = useClient();
@@ -29,19 +30,23 @@ export default function Home() {
       <MenuWrapper>
         <Menu>
           <Logo src="logo.svg" alt="Logo" />
-          <Input>
-            <Search size={17} />
-            <input
-              type="text"
-              onChange={(e) => setFilter(e.target.value)}
-              placeholder="Buscar aqui"
-            />
-          </Input>
+          <MediaMatch greaterThan="large">
+            <Input>
+              <Search size={17} />
+              <input
+                type="text"
+                onChange={(e) => setFilter(e.target.value)}
+                placeholder="Buscar aqui"
+              />
+            </Input>
+          </MediaMatch>
         </Menu>
       </MenuWrapper>
       <Title>Lista de membros</Title>
       <Main>
-        <Sidebar />
+        <MediaMatch greaterThan="large">
+          <Sidebar />
+        </MediaMatch>
         <MembersList />
       </Main>
 

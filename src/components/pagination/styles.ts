@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const DataContainer = styled.ul``;
 
@@ -25,6 +26,7 @@ export const MemberName = styled.div`
 export const MemberInfo = styled.li``;
 
 export const Wrapper = styled.div`
+  position: relative;
   .pageNumbers {
     list-style: none;
     display: flex;
@@ -74,6 +76,11 @@ export const UserContainer = styled.ul`
     grid-gap: 16px;
     padding-inline-start: 0;
     list-style: none;
+
+    ${media.lessThan("large")`
+      height: 430px;
+      overflow-y: auto;
+    `}
 
     img {
       border-radius: 50%;
