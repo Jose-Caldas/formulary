@@ -4,9 +4,6 @@ import {
   InstagramWithCircle,
 } from "@styled-icons/entypo-social";
 
-import { useRouter } from "next/router";
-
-import { Search } from "@styled-icons/feather/Search";
 import {
   Container,
   Nav,
@@ -15,15 +12,13 @@ import {
   MemberInfo,
   Logo,
 } from "../../styles/pages/member.styles";
-import { useClient } from "../../context/use-client";
 import Link from "next/link";
 import { Footer, Social } from "../../styles/pages/home.styles";
+import axios from "axios";
+import { User } from "../../context/use-client";
 
-export default function Member() {
-  const { users, setFilter } = useClient();
-  const router = useRouter();
-  const { id } = router.query;
-
+export default function Member({ member }) {
+  console.log(member);
   return (
     <Container>
       <Nav>
@@ -39,7 +34,7 @@ export default function Member() {
         </Back>
         <MemberInfo>
           <h1>
-            Informações sobre: <span>{id}</span>
+            Informações sobre: <span></span>
           </h1>
         </MemberInfo>
       </Wrapper>
@@ -68,4 +63,36 @@ export default function Member() {
       </Footer>
     </Container>
   );
+}
+
+export async function getStaticPaths() {
+  const API_BASE_URL =
+    "https://run.mocky.io/v3/3150d4b0-fb4e-44af-94d2-689b46d91129";
+
+  const res = await axios.get<{ results: User[] }>(API_BASE_URL);
+
+  const { results } = await res.data;
+  const members = results.map((member) => ({
+    params: { ...member, id: `${member.name.first}-${member.name.last}` },
+  }));
+
+  return {
+    paths: members,
+    fallback: true,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const API_BASE_URL =
+    "https://run.mocky.io/v3/3150d4b0-fb4e-44af-94d2-689b46d91129";
+
+  const res = await axios.get<{ results: User[] }>(API_BASE_URL);
+
+  const { results } = await res.data;
+  const members = results.map((member) => ({
+    params: { ...member, id: `${member.name.first}-${member.name.last}` },
+  }));
+  return {
+    props: { member: members.find((member) => member.params.id === params.id) },
+  };
 }

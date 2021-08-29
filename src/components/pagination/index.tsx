@@ -18,7 +18,7 @@ function Pagination() {
             <S.MemberInfo key={index}>
               <img src={user.picture.medium} alt="avatar" />
               <S.MemberName>
-                <Link href={`/member/${user.name.first}`}>
+                <Link href={`/member/${user.name.first}-${user.name.last}`}>
                   <a>
                     <h1>{user.name.first}</h1>
                     <h1>{user.name.last}</h1>
