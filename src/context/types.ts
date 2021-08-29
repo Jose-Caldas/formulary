@@ -1,3 +1,5 @@
+export type StateMapper = { label: string; value: string };
+
 export interface Name {
   title: string;
   first: string;

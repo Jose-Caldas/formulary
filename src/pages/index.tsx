@@ -8,7 +8,7 @@ import { Search } from "@styled-icons/feather/Search";
 import * as S from "../styles/pages/home.styles";
 import { Sidebar } from "../components/sidebar";
 import { MembersList } from "../components/membersList";
-import { useClient } from "../context/use-client";
+import { useClient } from "../context/useMembers";
 import Link from "next/link";
 import MediaMatch from "../components/MediaMatch";
 import Dropdown from "../components/dropdown";
@@ -18,7 +18,10 @@ import logoWhite from "../assets/logoWhite.svg";
 import Image from "next/image";
 
 export default function Home() {
-  const { setFilter } = useClient();
+  const {
+    handlers: { setFilter },
+  } = useClient();
+
   return (
     <S.Container>
       <S.MenuWrapper>

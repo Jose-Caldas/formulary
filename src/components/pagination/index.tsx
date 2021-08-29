@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useClient } from "../../context/use-client";
+import { useClient } from "../../context/useMembers";
 import * as S from "./styles";
 import { ArrowIosBack, ArrowIosForward } from "@styled-icons/evaicons-solid";
 import Link from "next/link";
@@ -8,7 +8,10 @@ import { User } from "../../context/types";
 import Image from "next/image";
 
 function Pagination() {
-  const { users, currentPage, setCurrentPage } = useClient();
+  const {
+    state: { users, currentPage },
+    handlers: { setCurrentPage },
+  } = useClient();
   const [pageNumberLimit, setPageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
@@ -33,6 +36,7 @@ function Pagination() {
               </S.MemberName>
               <h2>{user.email}</h2>
               <h3>{user.location.city}</h3>
+              <h3>{user.location.state}</h3>
             </S.MemberInfo>
           );
         })}

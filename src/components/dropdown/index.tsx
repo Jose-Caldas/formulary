@@ -1,10 +1,12 @@
-import Link from "next/link";
 import { useState } from "react";
 import * as S from "./styles";
 import { ExpandMore } from "@styled-icons/material/ExpandMore";
+import { useClient } from "../../context/useMembers";
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { handlers } = useClient();
+  const { setSort } = handlers;
   return (
     <S.Wrapper isOpen={isOpen}>
       <S.Title onClick={() => setIsOpen(!isOpen)}>
@@ -12,18 +14,30 @@ const Dropdown = () => {
       </S.Title>
 
       <S.Content aria-hidden={!isOpen}>
-        <Link href="#">
+        <button
+          onClick={() => {
+            setIsOpen(false);
+            setSort("id");
+          }}
+        >
           <a>Nome</a>
-        </Link>
-        <Link href="#">
+        </button>
+        <button
+          onClick={() => {
+            setIsOpen(false);
+            setSort("email");
+          }}
+        >
           <a>Email</a>
-        </Link>
-        <Link href="#">
-          <a>Cidade</a>
-        </Link>
-        <Link href="#">
+        </button>
+        <button
+          onClick={() => {
+            setIsOpen(false);
+            setSort("state");
+          }}
+        >
           <a>Estado</a>
-        </Link>
+        </button>
       </S.Content>
       <S.Overlay aria-hidden={!isOpen} onClick={() => setIsOpen(!isOpen)} />
     </S.Wrapper>
