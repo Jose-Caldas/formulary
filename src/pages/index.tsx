@@ -13,6 +13,10 @@ import Link from "next/link";
 import MediaMatch from "../components/MediaMatch";
 import Dropdown from "../components/dropdown";
 
+import logoWhite from "../assets/logoWhite.svg";
+
+import Image from "next/image";
+
 export default function Home() {
   const { setFilter } = useClient();
   return (
@@ -46,7 +50,7 @@ export default function Home() {
       </S.Main>
 
       <S.Footer>
-        <img src="logoWhite.svg" alt="logo color white" />
+        <Image src={logoWhite} alt="logo color white" />
         <h2>Juntos Somos Mais Fidelização S.A.</h2>
         <h3>Siga-nos nas redes sociais:</h3>
         <S.Social>

@@ -5,6 +5,8 @@ import { ArrowIosBack, ArrowIosForward } from "@styled-icons/evaicons-solid";
 import Link from "next/link";
 import { User } from "../../context/types";
 
+import Image from "next/image";
+
 function Pagination() {
   const { users, currentPage, setCurrentPage } = useClient();
   const [pageNumberLimit, setPageNumberLimit] = useState(5);
@@ -17,7 +19,10 @@ function Pagination() {
         {data.map((user, index) => {
           return (
             <S.MemberInfo key={index}>
-              <img src={user.picture.medium} alt="avatar" />
+              <Image
+                src={{ src: user.picture.medium, height: 97, width: 97 }}
+                alt="avatar"
+              />
               <S.MemberName>
                 <Link href={`/member/${user.name.first}-${user.name.last}`}>
                   <a>

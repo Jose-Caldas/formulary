@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import * as S from "./styles";
 import Pagination from "../pagination";
 import { useClient } from "../../context/use-client";

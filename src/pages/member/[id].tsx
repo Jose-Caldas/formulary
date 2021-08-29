@@ -17,12 +17,19 @@ import { Footer, Social } from "../../styles/pages/home.styles";
 import axios from "axios";
 import { User } from "../../context/types";
 
+import logo from "../../assets/logo.svg";
+import logoWhite from "../../assets/logoWhite.svg";
+
+import Image from "next/image";
+
 export default function Member({ member }: { member: { params: User } }) {
   return (
     <Container>
       <Nav>
         <Logo>
-          <img src="/logo.svg" alt="Logo" />
+          {/* <img src="/logo.svg" alt="Logo" /> */}
+
+          <Image src={logo} alt="logo color white" />
         </Logo>
       </Nav>
       <Wrapper>
@@ -39,7 +46,7 @@ export default function Member({ member }: { member: { params: User } }) {
       </Wrapper>
 
       <Footer>
-        <img src="/logoWhite.svg" alt="logo color white" />
+        <Image src={logoWhite} alt="logo color white" />
         <h2>Juntos Somos Mais Fidelização S.A.</h2>
         <h3>Siga-nos nas redes sociais:</h3>
         <Social>
