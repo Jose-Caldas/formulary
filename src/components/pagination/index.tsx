@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useClient, User } from "../../context/use-client";
+import { useClient } from "../../context/use-client";
 import * as S from "./styles";
 import { ArrowIosBack, ArrowIosForward } from "@styled-icons/evaicons-solid";
 import Link from "next/link";
+import { User } from "../../context/types";
 
 function Pagination() {
   const { users, currentPage, setCurrentPage } = useClient();

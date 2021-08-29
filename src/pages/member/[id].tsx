@@ -15,10 +15,9 @@ import {
 import Link from "next/link";
 import { Footer, Social } from "../../styles/pages/home.styles";
 import axios from "axios";
-import { User } from "../../context/use-client";
+import { User } from "../../context/types";
 
 export default function Member({ member }: { member: { params: User } }) {
-  console.log(member);
   return (
     <Container>
       <Nav>
@@ -34,7 +33,7 @@ export default function Member({ member }: { member: { params: User } }) {
         </Back>
         <MemberInfo>
           <h1>
-            Informações sobre: <span>{member.params.name.first}</span>
+            Informações sobre: <span>{member?.params?.name?.first}</span>
           </h1>
         </MemberInfo>
       </Wrapper>
@@ -71,7 +70,7 @@ export async function getStaticPaths() {
 
   try {
     const res = await axios.get<{ results: User[] }>(API_BASE_URL);
-    const { results } = await res.data;
+    const { results } = res.data;
     const members = results.map((member) => ({
       params: { ...member, id: `${member.name.first}-${member.name.last}` },
     }));
@@ -83,7 +82,7 @@ export async function getStaticPaths() {
   } catch (error) {
     return {
       paths: [],
-      fallback: true,
+      fallback: false,
     };
   }
 }
@@ -95,7 +94,7 @@ export async function getStaticProps({ params }) {
   try {
     const res = await axios.get<{ results: User[] }>(API_BASE_URL);
 
-    const { results } = await res.data;
+    const { results } = res.data;
     const members = results.map((member) => ({
       params: { ...member, id: `${member.name.first}-${member.name.last}` },
     }));
