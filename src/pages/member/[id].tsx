@@ -18,7 +18,7 @@ import axios from "axios";
 import { User } from "../../context/types";
 
 import logo from "../../assets/logo.svg";
-import logoWhite from "../../assets/logoWhite.svg";
+import logoWhite from "../../assets/LogoWhite.svg";
 
 import Image from "next/image";
 

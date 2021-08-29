@@ -13,7 +13,7 @@ import Link from "next/link";
 import MediaMatch from "../components/MediaMatch";
 import Dropdown from "../components/dropdown";
 
-import logoWhite from "../assets/logoWhite.svg";
+import logoWhite from "../assets/LogoWhite.svg";
 
 import Image from "next/image";
 
