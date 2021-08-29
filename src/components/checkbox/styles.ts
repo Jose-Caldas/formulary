@@ -32,10 +32,6 @@ export const Input = styled.input`
     transition: ${(props) => props.theme.transition.fast};
   }
 
-  &:focus {
-    /* box-shadow: 0 0 0.5rem ${(props) => props.theme.colors.secondary}; */
-  }
-
   &:hover {
     border-color: ${(props) => props.theme.colors.gray};
     transition: ${(props) => props.theme.transition.fast};

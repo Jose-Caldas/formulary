@@ -38,7 +38,7 @@ export const Title = styled.div`
     align-items: center;
     padding-right: 2.4rem;
     z-index: ${theme.layers.alwaysOnTop};
-    font-size: 20px;
+    font-size: ${(props) => props.theme.font.sizes.medium};
   `}
 `;
 export const Content = styled.ul`

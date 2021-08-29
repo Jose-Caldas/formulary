@@ -1,17 +1,6 @@
-import axios from "axios";
-import React, { useEffect } from "react";
 import { useState } from "react";
 import { useClient, User } from "../../context/use-client";
-import {
-  Wrapper,
-  DataContainer,
-  MemberInfo,
-  UserContainer,
-  Controls,
-  PrevButton,
-  NextButton,
-  MemberName,
-} from "./styles";
+import * as S from "./styles";
 import { ArrowIosBack, ArrowIosForward } from "@styled-icons/evaicons-solid";
 import Link from "next/link";
 
@@ -21,27 +10,27 @@ function Pagination() {
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
-  const renderData = (data: User[]) => {
+  const userData = (data: User[]) => {
     return (
-      <DataContainer>
+      <S.DataContainer>
         {data.map((user, index) => {
           return (
-            <MemberInfo key={index}>
+            <S.MemberInfo key={index}>
               <img src={user.picture.medium} alt="avatar" />
-              <MemberName>
+              <S.MemberName>
                 <Link href={`/member/${user.name.first}`}>
                   <a>
                     <h1>{user.name.first}</h1>
                     <h1>{user.name.last}</h1>
                   </a>
                 </Link>
-              </MemberName>
+              </S.MemberName>
               <h2>{user.email}</h2>
               <h3>{user.location.city}</h3>
-            </MemberInfo>
+            </S.MemberInfo>
           );
         })}
-      </DataContainer>
+      </S.DataContainer>
     );
   };
 
@@ -77,9 +66,9 @@ function Pagination() {
     }
   });
 
-  const indexOfLastItem = currentPage * itemsPerPage; //1 * 5 = last item 5
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage; //5 - 5 = first item 0
-  const currentItems = users.slice(indexOfFirstItem, indexOfLastItem); // 0 , 5
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = users.slice(indexOfFirstItem, indexOfLastItem);
 
   const handlePrevButton = () => {
     setCurrentPage(currentPage - 1);
@@ -107,29 +96,29 @@ function Pagination() {
   }
 
   return (
-    <Wrapper>
-      <UserContainer>{renderData(currentItems)}</UserContainer>
-      <Controls className="pageNumbers">
-        <PrevButton>
+    <S.Wrapper>
+      <S.UserContainer>{userData(currentItems)}</S.UserContainer>
+      <S.Controls className="pageNumbers">
+        <S.PrevButton>
           <button onClick={handlePrevButton} disabled={currentPage === 1}>
             <ArrowIosBack size={22} />
           </button>
-        </PrevButton>
+        </S.PrevButton>
 
         {pageDecrementButton}
         {renderPageNumbers}
         {pageIncrementButton}
 
-        <NextButton>
+        <S.NextButton>
           <button
             onClick={handleNextButton}
             disabled={currentPage == pages[pages.length - 1] ? true : false}
           >
             <ArrowIosForward size={22} />
           </button>
-        </NextButton>
-      </Controls>
-    </Wrapper>
+        </S.NextButton>
+      </S.Controls>
+    </S.Wrapper>
   );
 }
 

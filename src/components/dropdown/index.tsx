@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useState } from "react";
-import { ReactNode } from "react";
 import * as S from "./styles";
 import { ExpandMore } from "@styled-icons/material/ExpandMore";
 

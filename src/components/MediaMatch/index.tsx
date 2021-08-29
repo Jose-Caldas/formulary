@@ -1,6 +1,14 @@
 import styled, { css } from "styled-components";
 import media, { DefaultBreakpoints } from "styled-media-query";
 
+// breakpoint
+// {
+//   huge: '1440px',
+//   large: '1170px',
+//   medium: '768px',
+//   small: '450px',
+// }
+
 type breakpoint = keyof DefaultBreakpoints;
 
 export type MediaMatchProps = {

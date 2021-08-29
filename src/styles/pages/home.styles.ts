@@ -28,6 +28,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Menu = styled.div`
+  position: relative;
   width: 100%;
   display: flex;
   max-width: ${(props) => props.theme.grid.container};
@@ -35,9 +36,15 @@ export const Menu = styled.div`
 
   margin: 0 auto;
 
-  @media (max-width: 778px) {
+  ${media.lessThan("medium")`
     flex-direction: column;
-  }
+  `}
+`;
+
+export const MenuMobile = styled.div`
+  position: absolute;
+  top: 3rem;
+  right: 0.5rem;
 `;
 
 export const Logo = styled.img`
@@ -57,11 +64,17 @@ export const Input = styled.div`
   border-radius: 3.2rem;
   padding: 0 ${(props) => props.theme.spacings.xsmall};
 
-  @media (max-width: 778px) {
+  ${media.between("medium", "large")`
+    margin-left: 5rem;
+    max-width: 30rem;
+
+  `}
+
+  ${media.lessThan("medium")`
     margin-left: 0;
     margin-top: 2rem;
-    width: 32rem;
-  }
+    width: 100%;
+  `}
 
   input {
     width: 100%;

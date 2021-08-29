@@ -1,9 +1,6 @@
 import styled from "styled-components";
-import media from "styled-media-query";
 
-export const Container = styled.div`
-  background-color: blue;
-`;
+export const Container = styled.div``;
 
 export const Wrapper = styled.div`
   display: flex;
@@ -22,41 +19,11 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Select = styled.select`
-  width: 20rem;
-  height: 35px;
-  background: white;
-  color: ${(props) => props.theme.colors.text};
-  font-size: ${(props) => props.theme.font.sizes.small};
-
-  border: none;
-
-  option {
-    color: ${(props) => props.theme.colors.text};
-    background: white;
-    display: flex;
-    white-space: pre;
-    min-height: 2rem;
-    padding: 0 0.2rem 0.1rem;
-  }
-`;
-
 export const MembersContainer = styled.div`
   @media (max-width: 925px) {
     height: 500px;
     overflow-y: auto;
   }
-`;
-
-export const Items = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  border: 1px solid #e5e5e5;
-  height: 310px;
-  border-radius: ${(props) => props.theme.border.radius};
-  background-color: yellow;
 `;
 
 export const Loading = styled.div``;
