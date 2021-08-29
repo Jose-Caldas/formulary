@@ -17,7 +17,7 @@ import { Footer, Social } from "../../styles/pages/home.styles";
 import axios from "axios";
 import { User } from "../../context/use-client";
 
-export default function Member({ member }) {
+export default function Member({ member }: { member: { params: User } }) {
   console.log(member);
   return (
     <Container>
@@ -34,7 +34,7 @@ export default function Member({ member }) {
         </Back>
         <MemberInfo>
           <h1>
-            Informações sobre: <span></span>
+            Informações sobre: <span>{member.params.name.first}</span>
           </h1>
         </MemberInfo>
       </Wrapper>
@@ -69,30 +69,44 @@ export async function getStaticPaths() {
   const API_BASE_URL =
     "https://run.mocky.io/v3/3150d4b0-fb4e-44af-94d2-689b46d91129";
 
-  const res = await axios.get<{ results: User[] }>(API_BASE_URL);
+  try {
+    const res = await axios.get<{ results: User[] }>(API_BASE_URL);
+    const { results } = await res.data;
+    const members = results.map((member) => ({
+      params: { ...member, id: `${member.name.first}-${member.name.last}` },
+    }));
 
-  const { results } = await res.data;
-  const members = results.map((member) => ({
-    params: { ...member, id: `${member.name.first}-${member.name.last}` },
-  }));
-
-  return {
-    paths: members,
-    fallback: true,
-  };
+    return {
+      paths: members,
+      fallback: true,
+    };
+  } catch (error) {
+    return {
+      paths: [],
+      fallback: true,
+    };
+  }
 }
 
 export async function getStaticProps({ params }) {
   const API_BASE_URL =
     "https://run.mocky.io/v3/3150d4b0-fb4e-44af-94d2-689b46d91129";
 
-  const res = await axios.get<{ results: User[] }>(API_BASE_URL);
+  try {
+    const res = await axios.get<{ results: User[] }>(API_BASE_URL);
 
-  const { results } = await res.data;
-  const members = results.map((member) => ({
-    params: { ...member, id: `${member.name.first}-${member.name.last}` },
-  }));
-  return {
-    props: { member: members.find((member) => member.params.id === params.id) },
-  };
+    const { results } = await res.data;
+    const members = results.map((member) => ({
+      params: { ...member, id: `${member.name.first}-${member.name.last}` },
+    }));
+    return {
+      props: {
+        member: members.find((member) => member.params.id === params.id),
+      },
+    };
+  } catch (error) {
+    return {
+      props: { member: {} },
+    };
+  }
 }
