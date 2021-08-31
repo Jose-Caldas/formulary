@@ -47,8 +47,7 @@ export const Content = styled.ul`
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    background: ${theme.colors.footerBg};
-    border-bottom: 6px solid #eee;
+    background: ${theme.colors.menuBg};
 
     color: ${theme.colors.white};
     border-radius: ${(props) => props.theme.border.radius};
@@ -64,19 +63,21 @@ export const Content = styled.ul`
       position: absolute;
       border-right: 1.2rem solid transparent;
       border-left: 1.2rem solid transparent;
-      border-bottom: 1.2rem solid ${theme.colors.footerBg};
+      border-bottom: 1.2rem solid ${theme.colors.menuBg};
       top: -1.2rem;
       right: 2.4rem;
     }
-    a {
-      text-decoration: none;
+    button {
       font-size: ${theme.font.sizes.xlarge};
-      color: #fff;
+      color: #3a3a3a;
       padding: 1rem 2rem;
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid #eee;
 
       &:hover {
-        background-color: #f4f4f4;
-        color: #3a3a3a;
+        background-color: #999;
+        color: #fff;
 
         text-decoration: underline;
       }

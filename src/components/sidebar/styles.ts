@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  height: 47.4rem;
   padding: 2.4rem 2.7rem;
   border-radius: ${(props) => props.theme.border.radius};
   border: 1px solid #e5e5e5;
+  margin-bottom: 2rem;
 
   h2 {
     color: ${(props) => props.theme.colors.text};
@@ -24,9 +24,14 @@ export const Wrapper = styled.div`
     color: ${(props) => props.theme.colors.text};
   }
 
-  a {
+  Button {
     font-size: ${(props) => props.theme.font.sizes.medium};
     color: ${(props) => props.theme.colors.text};
+    border: none;
+    background-color: ${(props) => props.theme.colors.secondary};
+    color: ${(props) => props.theme.colors.white};
+    padding: 1rem;
+    border-radius: ${(props) => props.theme.border.radius};
   }
 `;
 export const City = styled.div`

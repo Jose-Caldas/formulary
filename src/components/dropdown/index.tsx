@@ -1,11 +1,11 @@
 import { useState } from "react";
 import * as S from "./styles";
 import { ExpandMore } from "@styled-icons/material/ExpandMore";
-import { useClient } from "../../context/useMembers";
+import { useMembers } from "../../context/useMembers";
 
 const Dropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { handlers } = useClient();
+  const { handlers } = useMembers();
   const { setSort } = handlers;
   return (
     <S.Wrapper isOpen={isOpen}>

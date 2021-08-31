@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useClient } from "../../context/useMembers";
+import { useMembers } from "../../context/useMembers";
 import * as S from "./styles";
 import { ArrowIosBack, ArrowIosForward } from "@styled-icons/evaicons-solid";
 import Link from "next/link";
@@ -11,7 +11,7 @@ function Pagination() {
   const {
     state: { users, currentPage },
     handlers: { setCurrentPage },
-  } = useClient();
+  } = useMembers();
   const [pageNumberLimit, setPageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
@@ -23,7 +23,7 @@ function Pagination() {
           return (
             <S.MemberInfo key={index}>
               <Image
-                src={{ src: user.picture.medium, height: 97, width: 97 }}
+                src={{ src: user.picture.large, height: 97, width: 97 }}
                 alt="avatar"
               />
               <S.MemberName>

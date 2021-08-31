@@ -1,20 +1,20 @@
 /* eslint-disable @next/next/no-img-element */
 import * as S from "./styles";
 import Pagination from "../pagination";
-import { useClient } from "../../context/useMembers";
+import { useMembers } from "../../context/useMembers";
 import Dropdown from "../dropdown";
 import MediaMatch from "../MediaMatch";
 
 export function MembersList() {
   const {
-    state: { users, loading },
-  } = useClient();
+    state: { loading },
+  } = useMembers();
 
   return (
     <S.Container>
       <MediaMatch greaterThan="large">
         <S.Wrapper>
-          <p>Exibindo {users.length}</p>
+          <p>Exibindo 9 de 25 items</p>
 
           <Dropdown />
         </S.Wrapper>

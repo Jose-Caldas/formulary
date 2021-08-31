@@ -120,7 +120,6 @@ export const Title = styled.h1`
 `;
 
 export const Main = styled.main`
-  width: 100%;
   display: grid;
   grid-template-columns: 27.2rem 1fr;
   max-width: ${(props) => props.theme.grid.container};
@@ -129,7 +128,9 @@ export const Main = styled.main`
   padding: 0 ${(props) => props.theme.spacings.small};
 
   ${media.lessThan("large")`
-  grid-template-columns: 1fr;
+  grid-template-columns: 2fr;
+  padding: none;
+ 
  `}
 `;
 

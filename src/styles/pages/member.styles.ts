@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import media from "styled-media-query";
 
 export const Container = styled.div`
   width: 100%;
@@ -6,16 +7,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-`;
-
-export const Wrapper = styled.div`
-  width: 100%;
-  flex: 1;
-
-  max-width: ${(props) => props.theme.grid.container};
-
   margin: 0 auto;
-  padding: ${(props) => props.theme.spacings.small};
 `;
 
 export const Nav = styled.nav`
@@ -39,19 +31,107 @@ export const Logo = styled.div`
 `;
 
 export const Back = styled.div`
-  margin: ${(props) => props.theme.spacings.large} 0;
+  width: 100%;
   font-size: ${(props) => props.theme.font.sizes.xlarge};
   color: #999999;
+  text-align: center;
+  margin-top: 2rem;
+  a {
+    background-color: ${(props) => props.theme.colors.secondary};
+    padding: 0.5rem 0.8rem;
+    border-radius: 4px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.5rem;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+`;
+
+export const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: ${(props) => props.theme.grid.container};
+
+  margin: 5vh auto;
+  padding: 0 ${(props) => props.theme.spacings.small};
+`;
+
+export const MemberCard = styled.div`
+  h1 {
+    text-align: center;
+  }
+`;
+
+export const MemberProfile = styled.div`
+  display: flex;
+
+  grid-gap: 2rem;
+  border: 1px solid #eee;
+  margin-top: 2rem;
+  border-radius: 4px;
+  padding: 2rem;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+
+  h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  ${media.lessThan("medium")`
+  flex-direction: column;
+  `}
 `;
 
 export const MemberInfo = styled.div`
-  border: 1px solid #eee;
-  padding: ${(props) => props.theme.spacings.medium};
+  background-color: #eee;
+  padding: 2rem;
 
-  h1 {
+  h2 {
+    color: ${(props) => props.theme.colors.footerBg};
+    margin-bottom: 2rem;
+  }
+
+  .member-info-name {
+    display: flex;
+    gap: 0.5rem;
+    text-transform: capitalize;
+    font-size: 2rem;
+  }
+`;
+
+export const MemberLocation = styled.div`
+  padding: 2rem;
+  h2 {
+    text-transform: capitalize;
+    font-weight: 400;
+  }
+
+  h4 {
+    color: #171717;
+    font-weight: normal;
+    text-align: flex-start;
+    font-size: 18px;
+    margin: 0.5rem;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 16px;
+    color: ${(props) => props.theme.colors.text};
+
     span {
-      font-weight: 400;
-      text-transform: capitalize;
+      color: ${(props) => props.theme.colors.secondary};
     }
+  }
+  p {
+    text-transform: capitalize;
+    color: ${(props) => props.theme.colors.text};
+    font-size: 18px;
   }
 `;

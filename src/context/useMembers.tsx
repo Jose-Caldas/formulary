@@ -140,6 +140,6 @@ function UserProvider({ children }: UserProviderProps) {
     </UserContext.Provider>
   );
 }
-const useClient = () => useContext(UserContext);
+const useMembers = () => useContext(UserContext);
 
-export { UserProvider, useClient };
+export { UserProvider, useMembers };

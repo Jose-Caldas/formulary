@@ -1,9 +1,12 @@
 import styled from "styled-components";
 
-export const Container = styled.div``;
+export const Container = styled.div`
+  max-width: 848px;
+`;
 
 export const Wrapper = styled.div`
   display: flex;
+  max-width: 848px;
   align-items: center;
   justify-content: space-between;
   border: 1px solid #e5e5e5;
