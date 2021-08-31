@@ -1,5 +1,5 @@
 import * as S from "./styles";
-import Checkbox from "../Checkbox";
+import Checkbox from "../checkbox";
 import { useMembers } from "../../context/useMembers";
 import { useMemo } from "react";
 import { take } from "ramda";
