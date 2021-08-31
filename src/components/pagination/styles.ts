@@ -8,6 +8,7 @@ export const DataContainer = styled.ul`
 export const MemberName = styled.div`
   a {
     display: flex;
+    gap: 0.8rem;
     font-size: 2rem;
     text-decoration: none;
     color: ${(props) => props.theme.colors.text};
@@ -18,14 +19,35 @@ export const MemberName = styled.div`
 
     h1 {
       font-size: ${(props) => props.theme.font.sizes.xlarge};
-      :first-child {
-        margin-right: 0.8rem;
-      }
     }
   }
 `;
 
-export const MemberInfo = styled.li``;
+export const MemberInfo = styled.li`
+  h1,
+  h2,
+  h3 {
+    text-transform: capitalize;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  .local {
+    text-align: center;
+  }
+
+  img {
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+`;
 
 export const Wrapper = styled.div`
   position: relative;
@@ -80,26 +102,18 @@ export const UserContainer = styled.ul`
     padding-inline-start: 0;
     list-style: none;
 
-    ${media.lessThan("large")`
+    ${media.between("medium", "large")`
     grid-template-columns: 1fr 1fr;
       overflow-y: auto;
-    `}
-    ${media.lessThan("medium")`
-    grid-template-columns: 1fr;
-      overflow-y: auto;
+     
     `}
 
-    ${media.lessThan("large")`
-      height: 430px;
-      overflow-y: auto;
-    `}
+    @media (max-width: 760px) {
+      grid-template-columns: 1fr;
+    }
 
     img {
       border-radius: 50%;
-    }
-
-    h1 {
-      text-transform: capitalize;
     }
 
     li {

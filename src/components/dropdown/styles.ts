@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import media from "styled-media-query";
 
 type WrapperProps = {
   isOpen?: boolean;
@@ -44,10 +45,11 @@ export const Title = styled.div`
 export const Content = styled.ul`
   ${({ theme }) => css`
     width: 20rem;
+    height: 20rem;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    background: ${theme.colors.menuBg};
+    background-color: #999;
 
     color: ${theme.colors.white};
     border-radius: ${(props) => props.theme.border.radius};
@@ -55,7 +57,7 @@ export const Content = styled.ul`
 
     margin-top: ${theme.spacings.small};
     position: absolute;
-    right: 8px;
+    right: 7px;
     top: 17px;
     z-index: ${theme.layers.alwaysOnTop};
     &::before {
@@ -63,25 +65,36 @@ export const Content = styled.ul`
       position: absolute;
       border-right: 1.2rem solid transparent;
       border-left: 1.2rem solid transparent;
-      border-bottom: 1.2rem solid ${theme.colors.menuBg};
+      border-bottom: 1.2rem solid #999;
       top: -1.2rem;
       right: 2.4rem;
     }
     button {
       font-size: ${theme.font.sizes.xlarge};
-      color: #3a3a3a;
+      color: #fff;
       padding: 1rem 2rem;
       background-color: transparent;
       border: none;
       border-bottom: 1px solid #eee;
+      cursor: pointer;
 
       &:hover {
-        background-color: #999;
-        color: #fff;
+        background-color: #eee;
+        color: #333;
 
         text-decoration: underline;
       }
     }
+  `}
+
+  ${media.lessThan("medium")`
+   height: 25rem;
+   width: 50vw;
+  `}
+
+  ${media.lessThan("small")`
+   height: 25rem;
+   width: 90vw;
   `}
 `;
 export const Overlay = styled.div`

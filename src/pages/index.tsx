@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import {
   FacebookWithCircle,
   LinkedinWithCircle,
@@ -20,6 +22,7 @@ import Image from "next/image";
 export default function Home() {
   const {
     handlers: { setFilter },
+    state: { loading },
   } = useMembers();
 
   return (
@@ -45,15 +48,24 @@ export default function Home() {
         </S.Menu>
       </S.MenuWrapper>
       <S.Title>Lista de membros</S.Title>
+
       <S.Main>
-        <MediaMatch greaterThan="large">
-          <Sidebar />
-        </MediaMatch>
-        <MembersList />
+        {loading ? (
+          <>
+            <img src="/dots.svg" alt="loading"></img>
+          </>
+        ) : (
+          <>
+            <MediaMatch greaterThan="large">
+              <Sidebar />
+            </MediaMatch>
+            <MembersList />
+          </>
+        )}
       </S.Main>
 
       <S.Footer>
-        <Image src={logoWhite} alt="logo color white" />
+        <Image src={logoWhite} alt="logo Juntos somos mais" />
         <h2>Juntos Somos Mais Fidelização S.A.</h2>
         <h3>Siga-nos nas redes sociais:</h3>
         <S.Social>

@@ -88,6 +88,21 @@ export const Input = styled.div`
   }
 `;
 
+export const Main = styled.main`
+  display: flex;
+  max-width: ${(props) => props.theme.grid.container};
+  grid-gap: ${(props) => props.theme.spacings.xsmall};
+  margin: 0 auto;
+  padding: 0 ${(props) => props.theme.spacings.small};
+
+  ${media.lessThan("large")`
+ 
+  flex-direction: column;
+  justify-content: center;
+ 
+ `}
+`;
+
 export const Social = styled.div`
   color: #fff;
   a {
@@ -113,25 +128,12 @@ export const Title = styled.h1`
   font-weight: ${(props) => props.theme.font.bold};
 
   ${media.lessThan("medium")`
-  font-size: 2.4rem;
-  margin: 2rem auto;
+    justify-content: center;
+    margin: 2rem auto;
+    text-align: center;
+    font-size: 2.8rem;
 
   `}
-`;
-
-export const Main = styled.main`
-  display: grid;
-  grid-template-columns: 27.2rem 1fr;
-  max-width: ${(props) => props.theme.grid.container};
-  grid-gap: ${(props) => props.theme.grid.gutter};
-  margin: 0 auto;
-  padding: 0 ${(props) => props.theme.spacings.small};
-
-  ${media.lessThan("large")`
-  grid-template-columns: 2fr;
-  padding: none;
- 
- `}
 `;
 
 export const Footer = styled.footer`
@@ -145,11 +147,10 @@ export const Footer = styled.footer`
   color: white;
   padding-top: ${(props) => props.theme.spacings.medium};
   padding-bottom: ${(props) => props.theme.spacings.xlarge};
-  img {
-    margin-bottom: 2.4rem;
-  }
+
   h2 {
     margin-bottom: 2.4rem;
+    margin-top: 2.4rem;
     font-size: ${(props) => props.theme.font.sizes.medium};
   }
   h3 {

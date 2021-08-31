@@ -10,7 +10,7 @@ const Dropdown = () => {
   return (
     <S.Wrapper isOpen={isOpen}>
       <S.Title onClick={() => setIsOpen(!isOpen)}>
-        Ordenar por: <ExpandMore size={40} />
+        Ordenar por: <ExpandMore size={35} />
       </S.Title>
 
       <S.Content aria-hidden={!isOpen}>

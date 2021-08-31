@@ -37,7 +37,8 @@ export const Back = styled.div`
   text-align: center;
   margin-top: 2rem;
   a {
-    background-color: ${(props) => props.theme.colors.secondary};
+    background-color: #0070f3;
+    box-shadow: 0 6px 20px rgba(0, 118, 255, 0.23);
     padding: 0.5rem 0.8rem;
     border-radius: 4px;
     color: #fff;
@@ -73,11 +74,10 @@ export const MemberProfile = styled.div`
   display: flex;
 
   grid-gap: 2rem;
-  border: 1px solid #eee;
   margin-top: 2rem;
   border-radius: 4px;
   padding: 2rem;
-  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.23);
 
   h3 {
     margin-bottom: 0.5rem;
@@ -91,6 +91,7 @@ export const MemberProfile = styled.div`
 export const MemberInfo = styled.div`
   background-color: #eee;
   padding: 2rem;
+  border-radius: 4px;
 
   h2 {
     color: ${(props) => props.theme.colors.footerBg};
@@ -117,16 +118,17 @@ export const MemberLocation = styled.div`
     font-weight: normal;
     text-align: flex-start;
     font-size: 18px;
-    margin: 0.5rem;
+    margin: 1rem;
     font-weight: bold;
   }
 
   h2 {
-    font-size: 16px;
+    font-size: 18px;
     color: ${(props) => props.theme.colors.text};
 
     span {
-      color: ${(props) => props.theme.colors.secondary};
+      color: #0070f3;
+      cursor: pointer;
     }
   }
   p {

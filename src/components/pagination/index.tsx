@@ -22,10 +22,14 @@ function Pagination() {
         {data.map((user, index) => {
           return (
             <S.MemberInfo key={index}>
-              <Image
-                src={{ src: user.picture.large, height: 97, width: 97 }}
-                alt="avatar"
-              />
+              <Link href={`/member/${user.name.first}-${user.name.last}`}>
+                <a>
+                  <Image
+                    src={{ src: user.picture.large, height: 97, width: 97 }}
+                    alt="avatar"
+                  />
+                </a>
+              </Link>
               <S.MemberName>
                 <Link href={`/member/${user.name.first}-${user.name.last}`}>
                   <a>
@@ -34,9 +38,13 @@ function Pagination() {
                   </a>
                 </Link>
               </S.MemberName>
-              <h2>{user.email}</h2>
-              <h3>{user.location.city}</h3>
-              <h3>{user.location.state}</h3>
+              <h2>{user.location.street}</h2>
+              <div className="local">
+                <h3>{user.location.city}</h3>
+                <h3>
+                  {user.location.state} - CEP: {user.location.postcode}
+                </h3>
+              </div>
             </S.MemberInfo>
           );
         })}
@@ -52,11 +60,6 @@ function Pagination() {
   }
 
   const renderPageNumbers = pages.map((pageNumber) => {
-    // qual e o tamanho do array
-    // qual e o index atual
-    //  total(20) - 17  = 3
-    //  total(20) - 19 = 1
-    // <= 3 ? resultado : 3
     if (
       pageNumber < maxPageNumberLimit + 1 &&
       pageNumber > minPageNumberLimit
