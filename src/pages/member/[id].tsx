@@ -107,9 +107,10 @@ export async function getStaticPaths() {
 
     return {
       paths: members,
-      fallback: true,
+      fallback: false,
     };
   } catch (error) {
+    console.log(error);
     return {
       paths: [],
       fallback: false,
@@ -118,6 +119,7 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+  console.log(params);
   const API_BASE_URL =
     "https://run.mocky.io/v3/3150d4b0-fb4e-44af-94d2-689b46d91129";
 
@@ -130,7 +132,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }));
     return {
       props: {
-        member: members.find((member) => member.params.id === params.id),
+        member: members.find((member) => member.params?.id === params?.id),
       },
     };
   } catch (error) {
