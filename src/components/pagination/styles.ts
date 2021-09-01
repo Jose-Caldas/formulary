@@ -47,6 +47,10 @@ export const MemberInfo = styled.li`
       opacity: 0.8;
     }
   }
+  ${media.lessThan("small")`
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.23);
+  
+  `}
 `;
 
 export const Wrapper = styled.div`

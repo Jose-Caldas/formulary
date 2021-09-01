@@ -22,12 +22,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const MembersContainer = styled.div`
-  @media (max-width: 925px) {
-    height: 500px;
-    overflow-y: auto;
-  }
-`;
+export const MembersContainer = styled.div``;
 
 export const Loading = styled.div``;
 
