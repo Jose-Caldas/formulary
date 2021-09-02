@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import { useMembers } from "../../context/useMembers";
 import * as S from "./styles";
@@ -24,10 +25,7 @@ function Pagination() {
             <S.MemberInfo key={index}>
               <Link href={`/member/${user.name.first}-${user.name.last}`}>
                 <a>
-                  <Image
-                    src={{ src: user.picture.large, height: 97, width: 97 }}
-                    alt="avatar"
-                  />
+                  <img src={user.picture.large} alt="avatar" />
                 </a>
               </Link>
               <S.MemberName>

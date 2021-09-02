@@ -10,6 +10,7 @@ import {
   SetStateAction,
   Dispatch,
 } from "react";
+import { capitalize } from "../utils/capitalize";
 import { StateMapper, User } from "./types";
 
 export interface UsersContextData {
@@ -27,18 +28,6 @@ export interface UsersContextData {
   };
 }
 
-function capitalize(sentence: string) {
-  const words = sentence.split(" ");
-
-  for (var i = 0; i < words.length; i++) {
-    words[i] = words[i].charAt(0).toUpperCase() + words[i].slice(1);
-  }
-
-  const sentenceFormated = words.join(" ");
-
-  return sentenceFormated;
-}
-
 export const usersContextDefaultValue: UsersContextData = {
   state: {
     users: [],
@@ -47,7 +36,7 @@ export const usersContextDefaultValue: UsersContextData = {
     states: [],
   },
   handlers: {
-    setFilter: () => null,
+    setFilter: () => {},
     setCurrentPage: () => {},
     setSort: () => {},
     setRegions: () => {},
@@ -129,10 +118,10 @@ function UserProvider({ children }: UserProviderProps) {
           loading,
         },
         handlers: {
-          setCurrentPage,
-          setFilter,
-          setSort,
-          setRegions,
+          setCurrentPage: (n: number) => setCurrentPage(n),
+          setFilter: (s: string) => setFilter(s),
+          setSort: (s: string) => setSort(s),
+          setRegions: (as: string[]) => setRegions(as),
         },
       }}
     >

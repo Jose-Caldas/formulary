@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import {
   FacebookWithCircle,
   LinkedinWithCircle,
@@ -10,10 +11,9 @@ import { Footer, Social } from "../../styles/pages/home.styles";
 import axios from "axios";
 import { User } from "../../context/types";
 
-import logo from "../../assets/logo.svg";
-import logoWhite from "../../assets/LogoWhite.svg";
+// import logo from "../../assets/logo.svg";
+// import logoWhite from "../../assets/LogoWhite.svg";
 
-import Image from "next/image";
 import { GetStaticProps } from "next";
 
 export default function Member({ member }: { member: { params: User } }) {
@@ -21,7 +21,7 @@ export default function Member({ member }: { member: { params: User } }) {
     <S.Container>
       <S.Nav>
         <S.Logo>
-          <Image src={logo} alt="logo color white" />
+          <img src="logo.svg" alt="logo color white" />
         </S.Logo>
       </S.Nav>
       <S.Wrapper>
@@ -34,14 +34,11 @@ export default function Member({ member }: { member: { params: User } }) {
                 <h2>{member.params.name.last}</h2>
               </div>
               <h3>Member</h3>
-              <Image
-                src={{
-                  src: member.params.picture.large,
-                  height: 120,
-                  width: 120,
-                }}
-                alt={`${member.params.name.first}, image`}
+              <img
+                src={member.params.picture.large}
+                alt={member.params.name.first}
               />
+
               <h3>AGE: {member.params.dob.age}</h3>
               <h3>CELL: {member.params.cell}</h3>
             </S.MemberInfo>
@@ -69,7 +66,7 @@ export default function Member({ member }: { member: { params: User } }) {
       </S.Wrapper>
 
       <Footer>
-        <Image src={logoWhite} alt="logo color white" />
+        <img src="logoWhite.svg" alt="logo color white" />
         <h2>Juntos Somos Mais Fidelização S.A.</h2>
         <h3>Siga-nos nas redes sociais:</h3>
         <Social>

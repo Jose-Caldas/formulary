@@ -15,7 +15,7 @@ import Link from "next/link";
 import MediaMatch from "../components/MediaMatch";
 import Dropdown from "../components/dropdown";
 
-import logoWhite from "../assets/LogoWhite.svg";
+// import logoWhite from "@/svg/LogoWhite.svg";
 
 import Image from "next/image";
 
@@ -47,8 +47,7 @@ export default function Home() {
           </MediaMatch>
         </S.Menu>
       </S.MenuWrapper>
-      <S.Title>Lista de membros</S.Title>
-
+      <S.Title>Lista de membros</S.Title>;
       <S.Main>
         {loading ? (
           <>
@@ -63,9 +62,8 @@ export default function Home() {
           </>
         )}
       </S.Main>
-
       <S.Footer>
-        <Image src={logoWhite} alt="logo Juntos somos mais" />
+        <img src="logoWhite.svg" alt="logo Juntos somos mais" />
         <h2>Juntos Somos Mais Fidelização S.A.</h2>
         <h3>Siga-nos nas redes sociais:</h3>
         <S.Social>
