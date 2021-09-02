@@ -15,10 +15,6 @@ import Link from "next/link";
 import MediaMatch from "../components/MediaMatch";
 import Dropdown from "../components/dropdown";
 
-// import logoWhite from "@/svg/LogoWhite.svg";
-
-import Image from "next/image";
-
 export default function Home() {
   const {
     handlers: { setFilter },

@@ -10,7 +10,8 @@ import {
   SetStateAction,
   Dispatch,
 } from "react";
-import { capitalize } from "../utils/capitalize";
+import { capitalize } from "../components/capitalize";
+
 import { StateMapper, User } from "./types";
 
 export interface UsersContextData {

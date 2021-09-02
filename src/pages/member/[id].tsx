@@ -11,9 +11,6 @@ import { Footer, Social } from "../../styles/pages/home.styles";
 import axios from "axios";
 import { User } from "../../context/types";
 
-// import logo from "../../assets/logo.svg";
-// import logoWhite from "../../assets/LogoWhite.svg";
-
 import { GetStaticProps } from "next";
 
 export default function Member({ member }: { member: { params: User } }) {
@@ -116,7 +113,6 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  console.log(params);
   const API_BASE_URL =
     "https://run.mocky.io/v3/3150d4b0-fb4e-44af-94d2-689b46d91129";
 
