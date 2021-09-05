@@ -10,9 +10,6 @@ jest.mock("../../context/useMembers", () => ({
       loading: false,
       users: [],
     },
-    handlers: {
-      setFilter: () => {},
-    },
   }),
 }));
 

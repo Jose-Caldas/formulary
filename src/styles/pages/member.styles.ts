@@ -35,7 +35,7 @@ export const Back = styled.div`
   font-size: ${(props) => props.theme.font.sizes.xlarge};
   color: #999999;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 3rem;
   a {
     background-color: #0070f3;
     box-shadow: 0 6px 20px rgba(0, 118, 255, 0.23);
@@ -114,12 +114,15 @@ export const MemberLocation = styled.div`
   }
 
   h4 {
-    color: #171717;
+    color: #3a3a3a;
     font-weight: normal;
     text-align: flex-start;
     font-size: 18px;
-    margin: 1rem;
+    margin: 1rem 0;
     font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
   }
 
   h2 {

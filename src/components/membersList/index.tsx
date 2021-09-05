@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+// /* eslint-disable @next/next/no-img-element */
 import * as S from "./styles";
 import Pagination from "../pagination";
 import { useMembers } from "../../context/useMembers";
@@ -14,7 +14,7 @@ export function MembersList() {
     <S.Container>
       <MediaMatch greaterThan="large">
         <S.Wrapper>
-          <p>Exibindo 9 de 25 items</p>
+          <p>Exibindo</p>
 
           <Dropdown />
         </S.Wrapper>

@@ -1,9 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
+// /* eslint-disable @next/next/no-img-element */
 import {
   FacebookWithCircle,
   LinkedinWithCircle,
   InstagramWithCircle,
 } from "@styled-icons/entypo-social";
+import { Email } from "@styled-icons/material-outlined/Email";
+import { Location } from "@styled-icons/ionicons-outline/Location";
 
 import * as S from "../../styles/pages/member.styles";
 import Link from "next/link";
@@ -18,7 +20,7 @@ export default function Member({ member }: { member: { params: User } }) {
     <S.Container>
       <S.Nav>
         <S.Logo>
-          <img src="logo.svg" alt="logo color white" />
+          <img src="/logo.svg" alt="logo Juntos somos mais" />
         </S.Logo>
       </S.Nav>
       <S.Wrapper>
@@ -43,12 +45,17 @@ export default function Member({ member }: { member: { params: User } }) {
               <h2>First Name: {member.params.name.first}</h2>
               <h2>Last Name: {member.params.name.last}</h2>
               <h2>Gender: {member.params.gender}</h2>
-              <h4>Contact</h4>
+              <h4>
+                <Email size={20} color="#0070f3" /> Contact
+              </h4>
               <h2>
-                Email: <span>{member.params.email}</span>
+                Email:
+                <span> {member.params.email}</span>
               </h2>
               <h2>Phone: {member.params.phone}</h2>
-              <h4>Location</h4>
+              <h4>
+                <Location size={20} color="#0070f3" /> Location
+              </h4>
               <p>Street: {member.params.location.street}</p>
               <p>City: {member.params.location.city}</p>
               <p>State: {member.params.location.state}</p>
@@ -63,7 +70,7 @@ export default function Member({ member }: { member: { params: User } }) {
       </S.Wrapper>
 
       <Footer>
-        <img src="logoWhite.svg" alt="logo color white" />
+        <img src="/logoWhite.svg" alt="logo color white, Juntos somos mais" />
         <h2>Juntos Somos Mais Fidelização S.A.</h2>
         <h3>Siga-nos nas redes sociais:</h3>
         <Social>

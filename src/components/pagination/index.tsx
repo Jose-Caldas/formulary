@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+// /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import { useMembers } from "../../context/useMembers";
 import * as S from "./styles";
@@ -6,14 +6,14 @@ import { ArrowIosBack, ArrowIosForward } from "@styled-icons/evaicons-solid";
 import Link from "next/link";
 import { User } from "../../context/types";
 
-import Image from "next/image";
+import Empty from "../Empty";
 
 function Pagination() {
   const {
     state: { users, currentPage },
     handlers: { setCurrentPage },
   } = useMembers();
-  const [pageNumberLimit, setPageNumberLimit] = useState(5);
+  const [pageNumberLimit] = useState(5);
   const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
   const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 
@@ -106,29 +106,35 @@ function Pagination() {
     pageDecrementButton = <li onClick={handlePrevButton}> &hellip; </li>;
   }
 
+  const message = pages.length === 0;
+
   return (
     <S.Wrapper>
       <S.UserContainer>{userData(currentItems)}</S.UserContainer>
-      <S.Controls className="pageNumbers">
-        <S.PrevButton>
-          <button onClick={handlePrevButton} disabled={currentPage === 1}>
-            <ArrowIosBack size={22} />
-          </button>
-        </S.PrevButton>
+      {message ? (
+        <Empty />
+      ) : (
+        <S.Controls className="pageNumbers">
+          <S.PrevButton>
+            <button onClick={handlePrevButton} disabled={currentPage === 1}>
+              <ArrowIosBack size={22} />
+            </button>
+          </S.PrevButton>
 
-        {pageDecrementButton}
-        {renderPageNumbers}
-        {pageIncrementButton}
+          {pageDecrementButton}
+          {renderPageNumbers}
+          {pageIncrementButton}
 
-        <S.NextButton>
-          <button
-            onClick={handleNextButton}
-            disabled={currentPage == pages[pages.length - 1] ? true : false}
-          >
-            <ArrowIosForward size={22} />
-          </button>
-        </S.NextButton>
-      </S.Controls>
+          <S.NextButton>
+            <button
+              onClick={handleNextButton}
+              disabled={currentPage == pages[pages.length - 1] ? true : false}
+            >
+              <ArrowIosForward size={22} />
+            </button>
+          </S.NextButton>
+        </S.Controls>
+      )}
     </S.Wrapper>
   );
 }

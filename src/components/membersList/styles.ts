@@ -6,7 +6,7 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   display: flex;
-  max-width: 848px;
+  width: 848px;
   align-items: center;
   justify-content: space-between;
   border: 1px solid #e5e5e5;

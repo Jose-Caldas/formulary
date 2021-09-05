@@ -42,7 +42,7 @@ export const Title = styled.div`
     font-size: ${(props) => props.theme.font.sizes.medium};
   `}
 `;
-export const Content = styled.ul`
+export const Content = styled.div`
   ${({ theme }) => css`
     width: 20rem;
     height: 20rem;

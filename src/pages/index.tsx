@@ -1,4 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
+// /* eslint-disable @next/next/no-img-element */
 
 import {
   FacebookWithCircle,
@@ -30,7 +30,7 @@ export default function Home() {
           <S.Input>
             <Search size={17} />
             <input
-              type="text"
+              type="search"
               onChange={(e) => setFilter(e.target.value)}
               placeholder="Buscar aqui"
             />
@@ -47,7 +47,7 @@ export default function Home() {
       <S.Main>
         {loading ? (
           <>
-            <img src="/dots.svg" alt="loading"></img>
+            <img src="/dots.svg" alt="loading" />
           </>
         ) : (
           <>

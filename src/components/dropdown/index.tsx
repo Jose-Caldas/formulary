@@ -38,6 +38,14 @@ const Dropdown = () => {
         >
           <a>Estado</a>
         </button>
+        <button
+          onClick={() => {
+            setIsOpen(false);
+            setSort("city");
+          }}
+        >
+          <a>Cidade</a>
+        </button>
       </S.Content>
       <S.Overlay aria-hidden={!isOpen} onClick={() => setIsOpen(!isOpen)} />
     </S.Wrapper>
