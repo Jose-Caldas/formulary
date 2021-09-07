@@ -1,19 +1,13 @@
-// /* eslint-disable @next/next/no-img-element */
-import {
-  FacebookWithCircle,
-  LinkedinWithCircle,
-  InstagramWithCircle,
-} from "@styled-icons/entypo-social";
 import { Email } from "@styled-icons/material-outlined/Email";
 import { Location } from "@styled-icons/ionicons-outline/Location";
 
 import * as S from "../../styles/pages/member.styles";
 import Link from "next/link";
-import { Footer, Social } from "../../styles/pages/home.styles";
 import axios from "axios";
 import { User } from "../../context/types";
 
 import { GetStaticProps } from "next";
+import Footer from "../../components/Footer";
 
 export default function Member({ member }: { member: { params: User } }) {
   return (
@@ -69,28 +63,7 @@ export default function Member({ member }: { member: { params: User } }) {
         </S.MemberCard>
       </S.Wrapper>
 
-      <Footer>
-        <img src="/logoWhite.svg" alt="logo color white, Juntos somos mais" />
-        <h2>Juntos Somos Mais Fidelização S.A.</h2>
-        <h3>Siga-nos nas redes sociais:</h3>
-        <Social>
-          <Link href="#">
-            <a>
-              <FacebookWithCircle size={40} />
-            </a>
-          </Link>
-          <Link href="#">
-            <a>
-              <LinkedinWithCircle size={40} />
-            </a>
-          </Link>
-          <Link href="#">
-            <a>
-              <InstagramWithCircle size={40} />
-            </a>
-          </Link>
-        </Social>
-      </Footer>
+      <Footer />
     </S.Container>
   );
 }

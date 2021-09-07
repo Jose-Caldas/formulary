@@ -1,19 +1,11 @@
-// /* eslint-disable @next/next/no-img-element */
-
-import {
-  FacebookWithCircle,
-  LinkedinWithCircle,
-  InstagramWithCircle,
-} from "@styled-icons/entypo-social";
-
 import { Search } from "@styled-icons/feather/Search";
 import * as S from "../styles/pages/home.styles";
 import { Sidebar } from "../components/sidebar";
 import { MembersList } from "../components/membersList";
 import { useMembers } from "../context/useMembers";
-import Link from "next/link";
 import MediaMatch from "../components/MediaMatch";
 import Dropdown from "../components/dropdown";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const {
@@ -58,28 +50,7 @@ export default function Home() {
           </>
         )}
       </S.Main>
-      <S.Footer>
-        <S.Logo src="logoWhite.svg" alt="Logo Juntos somos mais" />
-        <h2>Juntos Somos Mais Fidelização S.A.</h2>
-        <h3>Siga-nos nas redes sociais:</h3>
-        <S.Social>
-          <Link href="#">
-            <a>
-              <FacebookWithCircle size={40} />
-            </a>
-          </Link>
-          <Link href="#">
-            <a>
-              <LinkedinWithCircle size={40} />
-            </a>
-          </Link>
-          <Link href="#">
-            <a>
-              <InstagramWithCircle size={40} />
-            </a>
-          </Link>
-        </S.Social>
-      </S.Footer>
+      <Footer />
     </S.Container>
   );
 }
