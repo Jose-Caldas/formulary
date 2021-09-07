@@ -1,14 +1,18 @@
-import Home from "../index";
+import Home from "../pages/index";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { ThemeProvider } from "styled-components";
-import theme from "../../styles/theme";
+import theme from "../styles/theme";
 
-jest.mock("../../context/useMembers", () => ({
+jest.mock("../context/useMembers", () => ({
   useMembers: () => ({
     state: {
       loading: false,
       users: [],
+    },
+    handlers: {
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      setFilter: () => {},
     },
   }),
 }));

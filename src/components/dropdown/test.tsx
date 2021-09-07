@@ -1,9 +1,9 @@
 import "@testing-library/jest-dom";
 import { screen } from "@testing-library/react";
-import { renderWithTheme } from "../../../utils/helpers";
+import { renderWithTheme } from "../../utils/helpers";
 import userEvent from "@testing-library/user-event";
 
-import Dropdown from "..";
+import Dropdown from ".";
 //1 - Verificar se o Dropdown comeca fechado
 describe("Dropdown", () => {
   it("should dropdown start closed", () => {

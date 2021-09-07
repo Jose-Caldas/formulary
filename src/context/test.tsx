@@ -1,4 +1,4 @@
-import { useMembers, UserProvider } from "../useMembers";
+import { useMembers, UserProvider } from "./useMembers";
 import { renderHook, act } from "@testing-library/react-hooks";
 import { setupServer } from "msw/node";
 import { rest } from "msw";

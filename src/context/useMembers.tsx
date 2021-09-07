@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 import axios from "axios";
 import { prop, sortBy, uniqBy } from "ramda";
 import {
