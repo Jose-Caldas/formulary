@@ -53,6 +53,8 @@ export const Logo = styled.img`
   margin-left: 0;
 `;
 
+export const LogoWhite = styled.img``;
+
 export const Input = styled.div`
   display: flex;
   align-items: center;

@@ -59,7 +59,7 @@ export default function Home() {
         )}
       </S.Main>
       <S.Footer>
-        <img src="logoWhite.svg" alt="logo Juntos somos mais" />
+        <S.Logo src="logoWhite.svg" alt="Logo Juntos somos mais" />
         <h2>Juntos Somos Mais Fidelização S.A.</h2>
         <h3>Siga-nos nas redes sociais:</h3>
         <S.Social>

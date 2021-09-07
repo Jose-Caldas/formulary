@@ -111,6 +111,10 @@ export const MemberLocation = styled.div`
   h2 {
     text-transform: capitalize;
     font-weight: 400;
+
+    span {
+      text-transform: lowercase;
+    }
   }
 
   h4 {
