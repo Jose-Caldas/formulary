@@ -25,43 +25,43 @@ export default function Member({ member }: { member: { params: User } }) {
       </S.Nav>
       <S.Wrapper>
         <S.MemberCard>
-          <h1>View Member Profile</h1>
+          <h1>Informações sobre o membro</h1>
           <S.MemberProfile>
             <S.MemberInfo>
               <div className="member-info-name">
                 <h2>{member.params.name.first}</h2>
                 <h2>{member.params.name.last}</h2>
               </div>
-              <h3>Member</h3>
+              <h3>Membro</h3>
               <img
                 src={member.params.picture.large}
                 alt={member.params.name.first}
               />
 
-              <h3>AGE: {member.params.dob.age}</h3>
-              <h3>CELL: {member.params.cell}</h3>
+              <h3>IDADE: {member.params.dob.age}</h3>
+              <h3>CEL: {member.params.cell}</h3>
             </S.MemberInfo>
             <S.MemberLocation>
-              <h2>First Name: {member.params.name.first}</h2>
-              <h2>Last Name: {member.params.name.last}</h2>
-              <h2>Gender: {member.params.gender}</h2>
+              <h2>Nome: {member.params.name.first}</h2>
+              <h2>Sobrenome: {member.params.name.last}</h2>
+              <h2>Gênero: {member.params.gender}</h2>
               <h4>
-                <Email size={20} color="#0070f3" /> Contact
+                <Email size={20} color="#0070f3" /> Contato
               </h4>
               <h2>
                 Email:
                 <span> {member.params.email}</span>
               </h2>
-              <h2>Phone: {member.params.phone}</h2>
+              <h2>Telefone: {member.params.phone}</h2>
               <h4>
-                <Location size={20} color="#0070f3" /> Location
+                <Location size={20} color="#0070f3" /> Localização
               </h4>
-              <p>Street: {member.params.location.street}</p>
-              <p>City: {member.params.location.city}</p>
-              <p>State: {member.params.location.state}</p>
+              <p>Rua: {member.params.location.street}</p>
+              <p>Cidade: {member.params.location.city}</p>
+              <p>Estado: {member.params.location.state}</p>
               <S.Back>
                 <Link href="/">
-                  <a>Return to home</a>
+                  <a>Retornar à lista</a>
                 </Link>
               </S.Back>
             </S.MemberLocation>
