@@ -12,7 +12,10 @@ You should develop:
 [X] Add Button ShowAll Styles
 [X] Add Member Page Details
 
-[] Imagem
-[] ReadMe
+[X] Imagem
+[X] ReadMe
 [] gif
 [] CleanUp nomes de variáveis e comentários no código
+
+git
+renomear e descrição readme dos projetos

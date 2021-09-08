@@ -21,7 +21,7 @@ Testar meus conhecimentos a cerca das tecnologias propostas no desafio.
 
 ## Deploy on Vercel
 
-Veja o resultado: [link/deploy](https://formulary.vercel.app/)
+Veja o resultado: [link/deploy](https://team-dashboard-eta.vercel.app/)
 
 ## Contate-me
 
