@@ -22,5 +22,5 @@ describe("Dropdown", () => {
     expect(screen.getByRole("button", { name: /cidade/i }));
   });
 
-  //3 - Quando selecionar um item do menu, fechar o dropdown e indicar qual opção foi selecionada
+  //3 - Verificar se ao clicar nas categorias do Dropdown, a página exibe os itens correspondentes.
 });

@@ -105,6 +105,7 @@ function UserProvider({ children }: UserProviderProps) {
   }, [users, filter]);
 
   const listWithFilters = useMemo(() => {
+    setCurrentPage(1);
     return sortBy(prop(sort), list).filter((user) =>
       regions.length > 0 ? regions.includes(user.state) : user
     );

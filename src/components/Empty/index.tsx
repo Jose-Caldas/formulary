@@ -1,10 +1,13 @@
 import React from "react";
+import { Warning } from "@styled-icons/entypo/Warning";
+import { Wrapper } from "./styles";
 
 function Empty() {
   return (
-    <div>
+    <Wrapper>
       <h1>Nada encontrado!</h1>
-    </div>
+      <Warning size={30} />
+    </Wrapper>
   );
 }
 
