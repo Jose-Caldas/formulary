@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeProvider theme={theme}>
       <UserProvider>
         <Head>
-          <title>Formulary</title>
+          <title>Desafio Juntos Somos Mais Front-end</title>
         </Head>
         <Component {...pageProps} />
         <GlobalStyle />
