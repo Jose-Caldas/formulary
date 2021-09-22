@@ -20,7 +20,7 @@ const Dropdown = () => {
             setSort("id");
           }}
         >
-          <a>Nome</a>
+          <a title="ordenar por nome">Nome</a>
         </button>
         <button
           onClick={() => {
@@ -28,7 +28,7 @@ const Dropdown = () => {
             setSort("email");
           }}
         >
-          <a>Email</a>
+          <a title="ordenar por email">Email</a>
         </button>
         <button
           onClick={() => {
@@ -36,7 +36,7 @@ const Dropdown = () => {
             setSort("state");
           }}
         >
-          <a>Estado</a>
+          <a title="ordenar por estado">Estado</a>
         </button>
         <button
           onClick={() => {
@@ -44,7 +44,7 @@ const Dropdown = () => {
             setSort("city");
           }}
         >
-          <a>Cidade</a>
+          <a title="ordenar por cidade">Cidade</a>
         </button>
       </S.Content>
       <S.Overlay aria-hidden={!isOpen} onClick={() => setIsOpen(!isOpen)} />

@@ -42,7 +42,10 @@ export function Sidebar() {
         </S.City>
       ))}
 
-      <button onClick={() => setShowAll((prev) => !prev)}>
+      <button
+        title={showAll ? "ver menos estados" : "ver mais estados"}
+        onClick={() => setShowAll((prev) => !prev)}
+      >
         {showAll ? "Ver menos" : "Ver todos"}
       </button>
     </S.Wrapper>

@@ -30,7 +30,7 @@ function Pagination() {
               </Link>
               <S.MemberName>
                 <Link href={`/member/${user.name.first}-${user.name.last}`}>
-                  <a>
+                  <a title={`mais informações sobre ${user.name.first}`}>
                     <h1>{user.name.first}</h1>
                     <h1>{user.name.last}</h1>
                   </a>
