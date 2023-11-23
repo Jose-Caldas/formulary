@@ -24,16 +24,12 @@ function Pagination() {
           return (
             <S.MemberInfo key={index}>
               <Link href={`/member/${user.name.first}-${user.name.last}`}>
-                <a>
                   <img src={user.picture.large} alt="avatar" />
-                </a>
               </Link>
               <S.MemberName>
                 <Link href={`/member/${user.name.first}-${user.name.last}`}>
-                  <a title={`mais informações sobre ${user.name.first}`}>
                     <h1>{user.name.first}</h1>
                     <h1>{user.name.last}</h1>
-                  </a>
                 </Link>
               </S.MemberName>
               <h2>{user.location.street}</h2>

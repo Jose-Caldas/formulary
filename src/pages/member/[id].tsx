@@ -55,7 +55,7 @@ export default function Member({ member }: { member: { params: User } }) {
               <p>Estado: {member.params.location.state}</p>
               <S.Back>
                 <Link href="/">
-                  <a title="retornar à lista">Retornar à lista</a>
+                  Retornar à lista
                 </Link>
               </S.Back>
             </S.MemberLocation>
