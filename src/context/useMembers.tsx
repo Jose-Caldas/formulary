@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
-import axios from "axios";
-import { prop, sortBy, uniqBy } from "ramda";
+import axios from 'axios'
+import { prop, sortBy, uniqBy } from 'ramda'
 import {
   useState,
   useMemo,
@@ -10,24 +10,24 @@ import {
   ReactNode,
   SetStateAction,
   Dispatch,
-} from "react";
-import { capitalize } from "../components/capitalize";
+} from 'react'
+import { capitalize } from '../components/capitalize'
 
-import { StateMapper, User } from "./types";
+import { StateMapper, User } from './types'
 
 export interface UsersContextData {
   state: {
-    users: User[];
-    loading: boolean;
-    currentPage: number;
-    states: StateMapper[];
-  };
+    users: User[]
+    loading: boolean
+    currentPage: number
+    states: StateMapper[]
+  }
   handlers: {
-    setFilter: Dispatch<SetStateAction<string>>;
-    setCurrentPage: Dispatch<SetStateAction<number>>;
-    setSort: Dispatch<SetStateAction<string>>;
-    setRegions: Dispatch<SetStateAction<string[]>>;
-  };
+    setFilter: Dispatch<SetStateAction<string>>
+    setCurrentPage: Dispatch<SetStateAction<number>>
+    setSort: Dispatch<SetStateAction<string>>
+    setRegions: Dispatch<SetStateAction<string[]>>
+  }
 }
 
 export const usersContextDefaultValue: UsersContextData = {
@@ -43,57 +43,57 @@ export const usersContextDefaultValue: UsersContextData = {
     setSort: () => {},
     setRegions: () => {},
   },
-};
+}
 
 export const UserContext = createContext<UsersContextData>(
   usersContextDefaultValue
-);
+)
 
 const API_BASE_URL =
-  "https://run.mocky.io/v3/3150d4b0-fb4e-44af-94d2-689b46d91129";
+  'https://run.mocky.io/v3/365a2bf4-2b4a-4b5c-a653-dfb25567c6d3'
 
 export type UserProviderProps = {
-  children: ReactNode;
-};
+  children: ReactNode
+}
 
 function UserProvider({ children }: UserProviderProps) {
-  const [users, setUsers] = useState([]);
-  const [filter, setFilter] = useState("");
-  const [loading, setLoading] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [regions, setRegions] = useState<string[]>([]);
-  const [sort, setSort] = useState<string>("id");
-  const [states, setStates] = useState<StateMapper[]>([]);
+  const [users, setUsers] = useState([])
+  const [filter, setFilter] = useState('')
+  const [loading, setLoading] = useState(false)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [regions, setRegions] = useState<string[]>([])
+  const [sort, setSort] = useState<string>('id')
+  const [states, setStates] = useState<StateMapper[]>([])
 
   const getUsers = async () => {
-    setLoading(true);
-    const res = await axios.get(API_BASE_URL);
+    setLoading(true)
+    const res = await axios.get(API_BASE_URL)
 
-    const { results } = await res.data;
+    const { results } = await res.data
 
     const members = results.map((member) => ({
       ...member,
       id: `${member.name.first}`,
       state: member.location.state,
-    }));
+    }))
 
     const payload = results.map((member) => ({
       label: capitalize(member.location.state),
       value: member.location.state,
-    }));
+    }))
 
-    setStates(payload);
-    setLoading(false);
-    setUsers(members);
-  };
+    setStates(payload)
+    setLoading(false)
+    setUsers(members)
+  }
 
   useEffect(() => {
-    getUsers();
-  }, []);
+    getUsers()
+  }, [])
 
   const list = useMemo(() => {
-    const isFiltering = filter.length === 0;
-    setCurrentPage(1);
+    const isFiltering = filter.length === 0
+    setCurrentPage(1)
 
     return isFiltering
       ? users
@@ -101,22 +101,22 @@ function UserProvider({ children }: UserProviderProps) {
           (user) =>
             user.name.last.toLowerCase().includes(filter.toLowerCase()) ||
             user.name.first.toLowerCase().includes(filter.toLowerCase())
-        );
-  }, [users, filter]);
+        )
+  }, [users, filter])
 
   const listWithFilters = useMemo(() => {
-    setCurrentPage(1);
+    setCurrentPage(1)
     return sortBy(prop(sort), list).filter((user) =>
       regions.length > 0 ? regions.includes(user.state) : user
-    );
-  }, [list, sort, regions]);
+    )
+  }, [list, sort, regions])
 
   return (
     <UserContext.Provider
       value={{
         state: {
           users: listWithFilters,
-          states: uniqBy(prop("label"), states),
+          states: uniqBy(prop('label'), states),
           currentPage,
           loading,
         },
@@ -130,8 +130,8 @@ function UserProvider({ children }: UserProviderProps) {
     >
       {children}
     </UserContext.Provider>
-  );
+  )
 }
-const useMembers = () => useContext(UserContext);
+const useMembers = () => useContext(UserContext)
 
-export { UserProvider, useMembers };
+export { UserProvider, useMembers }
