@@ -83,7 +83,7 @@ const mockResponse = [
 
 const server = setupServer(
   rest.get(
-    "https://run.mocky.io/v3/3150d4b0-fb4e-44af-94d2-689b46d91129",
+    "https://run.mocky.io/v3/365a2bf4-2b4a-4b5c-a653-dfb25567c6d3",
     (req, res, ctx) => {
       return res(
         ctx.json({
