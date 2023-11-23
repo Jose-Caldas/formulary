@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <Head>
           <title>Desafio Juntos Somos Mais Front-end</title>
         </Head>
+        {/* @ts-expect-error this exists */}
         <Component {...pageProps} />
         <GlobalStyle />
       </UserProvider>
