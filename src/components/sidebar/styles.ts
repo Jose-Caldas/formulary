@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   width: 27.2rem;
@@ -30,7 +30,7 @@ export const Wrapper = styled.div`
     color: ${(props) => props.theme.colors.text};
     border: none;
     background-color: ${(props) => props.theme.colors.secondary};
-    background-color: #0070f3;
+    background-color: ${(props) => props.theme.colors.secondary};
     box-shadow: 0 6px 20px rgba(0, 118, 255, 0.23);
 
     color: ${(props) => props.theme.colors.white};
@@ -42,9 +42,9 @@ export const Wrapper = styled.div`
       opacity: 0.8;
     }
   }
-`;
+`
 export const City = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: ${(props) => props.theme.spacings.xxsmall};
-`;
+`

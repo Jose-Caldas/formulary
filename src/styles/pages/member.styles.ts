@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import media from "styled-media-query";
+import styled from 'styled-components'
+import media from 'styled-media-query'
 
 export const Container = styled.div`
   width: 100%;
@@ -8,12 +8,12 @@ export const Container = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin: 0 auto;
-`;
+`
 
 export const Nav = styled.nav`
   width: 100%;
   background-color: ${(props) => props.theme.colors.menuBg};
-`;
+`
 
 export const Logo = styled.div`
   width: 100%;
@@ -28,7 +28,7 @@ export const Logo = styled.div`
     height: 4rem;
     margin-left: 0;
   }
-`;
+`
 
 export const Back = styled.div`
   width: 100%;
@@ -37,9 +37,9 @@ export const Back = styled.div`
   text-align: center;
   margin-top: 3rem;
   a {
-    background-color: #0070f3;
+    background-color: ${(props) => props.theme.colors.secondary};
     box-shadow: 0 6px 20px rgba(0, 118, 255, 0.23);
-    padding: 0.5rem 0.8rem;
+    padding: 1rem;
     border-radius: 4px;
     color: #fff;
     text-decoration: none;
@@ -49,7 +49,7 @@ export const Back = styled.div`
       opacity: 0.8;
     }
   }
-`;
+`
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -62,13 +62,13 @@ export const Wrapper = styled.div`
 
   margin: 5vh auto;
   padding: 0 ${(props) => props.theme.spacings.small};
-`;
+`
 
 export const MemberCard = styled.div`
   h1 {
     text-align: center;
   }
-`;
+`
 
 export const MemberProfile = styled.div`
   display: flex;
@@ -83,10 +83,10 @@ export const MemberProfile = styled.div`
     margin-bottom: 0.5rem;
   }
 
-  ${media.lessThan("medium")`
+  ${media.lessThan('medium')`
   flex-direction: column;
   `}
-`;
+`
 
 export const MemberInfo = styled.div`
   background-color: #eee;
@@ -104,7 +104,7 @@ export const MemberInfo = styled.div`
     text-transform: capitalize;
     font-size: 2rem;
   }
-`;
+`
 
 export const MemberLocation = styled.div`
   padding: 2rem;
@@ -134,7 +134,7 @@ export const MemberLocation = styled.div`
     color: ${(props) => props.theme.colors.text};
 
     span {
-      color: #0070f3;
+      color: ${(props) => props.theme.colors.secondary};
       cursor: pointer;
     }
   }
@@ -143,4 +143,4 @@ export const MemberLocation = styled.div`
     color: ${(props) => props.theme.colors.text};
     font-size: 18px;
   }
-`;
+`

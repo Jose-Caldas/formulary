@@ -1,17 +1,17 @@
-import { Search } from "@styled-icons/feather/Search";
-import * as S from "../styles/pages/home.styles";
-import { Sidebar } from "../components/sidebar";
-import { MembersList } from "../components/membersList";
-import { useMembers } from "../context/useMembers";
-import MediaMatch from "../components/MediaMatch";
-import Dropdown from "../components/dropdown";
-import Footer from "../components/Footer";
+import { Search } from '@styled-icons/feather/Search'
+import * as S from '../styles/pages/home.styles'
+import { Sidebar } from '../components/sidebar'
+import { MembersList } from '../components/membersList'
+import { useMembers } from '../context/useMembers'
+import MediaMatch from '../components/MediaMatch'
+import Dropdown from '../components/dropdown'
+import Footer from '../components/Footer'
 
 export default function Home() {
   const {
     handlers: { setFilter },
     state: { loading },
-  } = useMembers();
+  } = useMembers()
 
   return (
     <S.Container>
@@ -52,5 +52,5 @@ export default function Home() {
       </S.Main>
       <Footer />
     </S.Container>
-  );
+  )
 }

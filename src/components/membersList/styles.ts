@@ -1,8 +1,8 @@
-import styled from "styled-components";
+import styled from 'styled-components'
 
 export const Container = styled.div`
   max-width: 848px;
-`;
+`
 
 export const Wrapper = styled.div`
   display: flex;
@@ -19,17 +19,21 @@ export const Wrapper = styled.div`
   p {
     font-size: ${(props) => props.theme.font.sizes.medium};
     color: ${(props) => props.theme.colors.text};
+
+    span {
+      color: ${(props) => props.theme.colors.secondary};
+    }
   }
-`;
+`
 
-export const MembersContainer = styled.div``;
+export const MembersContainer = styled.div``
 
-export const Loading = styled.div``;
+export const Loading = styled.div``
 
 export const Paginate = styled.div`
   display: flex;
   flex-direction: column;
-`;
+`
 
 export const Pagination = styled.div`
   width: 100%;
@@ -38,7 +42,7 @@ export const Pagination = styled.div`
   justify-content: center;
   font-size: ${(props) => props.theme.font.sizes.xxlarge};
   margin: 2rem 0 4rem;
-`;
+`
 
 export const Navigation = styled.div`
   display: flex;
@@ -52,4 +56,4 @@ export const Navigation = styled.div`
     padding: 5px;
     border: none;
   }
-`;
+`

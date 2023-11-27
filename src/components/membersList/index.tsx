@@ -1,20 +1,22 @@
 // /* eslint-disable @next/next/no-img-element */
-import * as S from "./styles";
-import Pagination from "../pagination";
-import { useMembers } from "../../context/useMembers";
-import Dropdown from "../dropdown";
-import MediaMatch from "../MediaMatch";
+import * as S from './styles'
+import Pagination from '../pagination'
+import { useMembers } from '../../context/useMembers'
+import Dropdown from '../dropdown'
+import MediaMatch from '../MediaMatch'
 
 export function MembersList() {
   const {
-    state: { loading },
-  } = useMembers();
+    state: { loading, users },
+  } = useMembers()
 
   return (
     <S.Container>
       <MediaMatch greaterThan="large">
         <S.Wrapper>
-          <p>Exibindo</p>
+          <p>
+            Encontrado: <span>{users.length}</span>
+          </p>
 
           <Dropdown />
         </S.Wrapper>
@@ -24,5 +26,5 @@ export function MembersList() {
         {loading ? <img src="/dots.svg" alt="loading" /> : <Pagination />}
       </S.MembersContainer>
     </S.Container>
-  );
+  )
 }

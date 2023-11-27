@@ -1,21 +1,23 @@
-import { Email } from "@styled-icons/material-outlined/Email";
-import { Location } from "@styled-icons/ionicons-outline/Location";
+import { Email } from '@styled-icons/material-outlined/Email'
+import { Location } from '@styled-icons/ionicons-outline/Location'
 
-import * as S from "../../styles/pages/member.styles";
-import Link from "next/link";
-import axios from "axios";
-import { User } from "../../context/types";
+import * as S from '../../styles/pages/member.styles'
+import Link from 'next/link'
+import axios from 'axios'
+import { User } from '../../context/types'
 
-import { GetStaticProps } from "next";
-import Footer from "../../components/Footer";
+import { GetStaticProps } from 'next'
+import Footer from '../../components/Footer'
 
 export default function Member({ member }: { member: { params: User } }) {
   return (
     <S.Container>
       <S.Nav>
-        <S.Logo>
-          <img src="/logo.svg" alt="logo Juntos somos mais" />
-        </S.Logo>
+        <Link href="/">
+          <S.Logo>
+            <img src="/logo.svg" alt="logo Juntos somos mais" />
+          </S.Logo>
+        </Link>
       </S.Nav>
       <S.Wrapper>
         <S.MemberCard>
@@ -38,11 +40,9 @@ export default function Member({ member }: { member: { params: User } }) {
             <S.MemberLocation>
               <h2>Nome: {member.params?.name?.first}</h2>
               <h2>Sobrenome: {member.params?.name?.last}</h2>
-              <h2>Gênero: {member.params?.gender}</h2>
               <h4>
-                <Email size={20} color="#0070f3" /> Contato
+                <Email size={20} color="#28B0FC" /> Contato
               </h4>
-
 
               <h2>
                 Email:
@@ -50,15 +50,13 @@ export default function Member({ member }: { member: { params: User } }) {
               </h2>
               <h2>Telefone: {member.params?.phone}</h2>
               <h4>
-                <Location size={20} color="#0070f3" /> Localização
+                <Location size={20} color="#28B0FC" /> Localização
               </h4>
               <p>Rua: {member.params?.location.street}</p>
               <p>Cidade: {member.params?.location.city}</p>
               <p>Estado: {member.params?.location.state}</p>
               <S.Back>
-                <Link href="/">
-                  Retornar à lista
-                </Link>
+                <Link href="/">Retornar à lista</Link>
               </S.Back>
             </S.MemberLocation>
           </S.MemberProfile>
@@ -67,52 +65,52 @@ export default function Member({ member }: { member: { params: User } }) {
 
       <Footer />
     </S.Container>
-  );
+  )
 }
 
 export async function getStaticPaths() {
   const API_BASE_URL =
-    "https://run.mocky.io/v3/365a2bf4-2b4a-4b5c-a653-dfb25567c6d3";
+    'https://run.mocky.io/v3/365a2bf4-2b4a-4b5c-a653-dfb25567c6d3'
 
   try {
-    const res = await axios.get<{ results: User[] }>(API_BASE_URL);
-    const { results } = res.data;
+    const res = await axios.get<{ results: User[] }>(API_BASE_URL)
+    const { results } = res.data
     const members = results.map((member) => ({
       params: { ...member, id: `${member?.name?.first}-${member?.name?.last}` },
-    }));
+    }))
 
     return {
       paths: members,
       fallback: false,
-    };
+    }
   } catch (error) {
-    console.log(error);
+    console.log(error)
     return {
       paths: [],
       fallback: false,
-    };
+    }
   }
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const API_BASE_URL =
-    "https://run.mocky.io/v3/365a2bf4-2b4a-4b5c-a653-dfb25567c6d3";
+    'https://run.mocky.io/v3/365a2bf4-2b4a-4b5c-a653-dfb25567c6d3'
 
   try {
-    const res = await axios.get<{ results: User[] }>(API_BASE_URL);
+    const res = await axios.get<{ results: User[] }>(API_BASE_URL)
 
-    const { results } = res.data;
+    const { results } = res.data
     const members = results.map((member) => ({
       params: { ...member, id: `${member?.name?.first}-${member?.name?.last}` },
-    }));
+    }))
     return {
       props: {
         member: members.find((member) => member.params?.id === params?.id),
       },
-    };
+    }
   } catch (error) {
     return {
       props: { member: {} },
-    };
+    }
   }
-};
+}
