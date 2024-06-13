@@ -8,6 +8,7 @@ import { User } from '../../context/types'
 
 import { GetStaticProps } from 'next'
 import Footer from '../../components/Footer'
+import { API_BASE_URL } from '../../context/useMembers'
 
 export default function Member({ member }: { member: { params: User } }) {
   return (
@@ -69,9 +70,6 @@ export default function Member({ member }: { member: { params: User } }) {
 }
 
 export async function getStaticPaths() {
-  const API_BASE_URL =
-    'https://run.mocky.io/v3/365a2bf4-2b4a-4b5c-a653-dfb25567c6d3'
-
   try {
     const res = await axios.get<{ results: User[] }>(API_BASE_URL)
     const { results } = res.data
@@ -93,9 +91,6 @@ export async function getStaticPaths() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const API_BASE_URL =
-    'https://run.mocky.io/v3/365a2bf4-2b4a-4b5c-a653-dfb25567c6d3'
-
   try {
     const res = await axios.get<{ results: User[] }>(API_BASE_URL)
 

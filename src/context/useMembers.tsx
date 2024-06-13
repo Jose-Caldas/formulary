@@ -15,6 +15,9 @@ import { capitalize } from '../components/capitalize'
 
 import { StateMapper, User } from './types'
 
+export const API_BASE_URL =
+  'https://run.mocky.io/v3/e40b4f17-9e39-43aa-a804-dfa9f0999bdf'
+
 export interface UsersContextData {
   state: {
     users: User[]
@@ -48,9 +51,6 @@ export const usersContextDefaultValue: UsersContextData = {
 export const UserContext = createContext<UsersContextData>(
   usersContextDefaultValue
 )
-
-const API_BASE_URL =
-  'https://run.mocky.io/v3/365a2bf4-2b4a-4b5c-a653-dfb25567c6d3'
 
 export type UserProviderProps = {
   children: ReactNode
