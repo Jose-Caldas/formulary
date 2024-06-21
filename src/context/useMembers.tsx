@@ -16,7 +16,7 @@ import { capitalize } from '../components/capitalize'
 import { StateMapper, User } from './types'
 
 export const API_BASE_URL =
-  'https://run.mocky.io/v3/e40b4f17-9e39-43aa-a804-dfa9f0999bdf'
+  'https://run.mocky.io/v3/f56bf0d9-f92f-447a-8058-781921ba6cc0'
 
 export interface UsersContextData {
   state: {
