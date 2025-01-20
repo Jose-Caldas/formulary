@@ -10,7 +10,11 @@ import { GetStaticProps } from 'next'
 import Footer from '../../components/Footer'
 import { API_BASE_URL } from '../../context/useMembers'
 
-export default function Member({ member }: { member: { params: User } }) {
+interface MemberProps {
+  member: { params: User }
+}
+
+export default function Member({ member }: MemberProps) {
   return (
     <S.Container>
       <S.Nav>
@@ -22,7 +26,7 @@ export default function Member({ member }: { member: { params: User } }) {
       </S.Nav>
       <S.Wrapper>
         <S.MemberCard>
-          <h1>Informações sobre o membro</h1>
+          <h1>Informações sobre o Usuário</h1>
           <S.MemberProfile>
             <S.MemberInfo>
               <div className="member-info-name">
@@ -71,8 +75,8 @@ export default function Member({ member }: { member: { params: User } }) {
 
 export async function getStaticPaths() {
   try {
-    const res = await axios.get<{ results: User[] }>(API_BASE_URL)
-    const { results } = res.data
+    const res = await axios.get(API_BASE_URL)
+    const results = res.data as User[]
     const members = results.map((member) => ({
       params: { ...member, id: `${member?.name?.first}-${member?.name?.last}` },
     }))
@@ -92,9 +96,9 @@ export async function getStaticPaths() {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   try {
-    const res = await axios.get<{ results: User[] }>(API_BASE_URL)
+    const res = await axios.get(API_BASE_URL)
 
-    const { results } = res.data
+    const results = res.data as User[]
     const members = results.map((member) => ({
       params: { ...member, id: `${member?.name?.first}-${member?.name?.last}` },
     }))

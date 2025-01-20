@@ -15,8 +15,7 @@ import { capitalize } from '../components/capitalize'
 
 import { StateMapper, User } from './types'
 
-export const API_BASE_URL =
-  'https://run.mocky.io/v3/f56bf0d9-f92f-447a-8058-781921ba6cc0'
+export const API_BASE_URL = 'https://member-list-api.vercel.app/results'
 
 export interface UsersContextData {
   state: {
@@ -69,7 +68,7 @@ function UserProvider({ children }: UserProviderProps) {
     setLoading(true)
     const res = await axios.get(API_BASE_URL)
 
-    const { results } = await res.data
+    const results = (await res.data) as User[]
 
     const members = results.map((member) => ({
       ...member,
